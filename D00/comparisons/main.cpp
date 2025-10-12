@@ -5,16 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/12 14:10:48 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/12 20:43:29 by amalangu         ###   ########.fr       */
+/*   Created: 2025/10/12 14:28:53 by amalangu          #+#    #+#             */
+/*   Updated: 2025/10/12 17:10:33 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "sample.class.hpp"
 
 int	main(void) {
-	char test[500];
-	std::cout << "test? :";
-	std::cin >> test;
-	std::cout << "enorme test :" << test << std::endl;
+	Sample	instance(5);
+	int		value;
+
+	std::cout << "value: ";
+	std::cin >> value;
+	instance.setFoo(value);
+	std::cout << "value = " << instance.getFoo() << std::endl;
 }
