@@ -6,21 +6,20 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 14:21:04 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/13 19:03:47 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/10/13 14:00:40 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sample.class.hpp"
 
-int Sample::_nbInst = 0;
-
-Sample::Sample() {
+Sample::Sample() : foo(0) {
 	std::cout << "Constructor called" << std::endl;
-	Sample::_nbInst++;
 }
 
+void Sample::bar() const {
+	std::cout << "bar called" << std::endl;
+}
 
-
-int Sample::getNbInst() {
-	return (Sample::_nbInst);
+Sample::~Sample() {
+	std::cout << "Destructor called" << std::endl;
 }

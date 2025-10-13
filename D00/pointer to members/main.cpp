@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sample.class.cpp                                   :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/12 14:21:04 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/13 19:03:47 by amalangu         ###   ########.fr       */
+/*   Created: 2025/10/12 14:28:53 by amalangu          #+#    #+#             */
+/*   Updated: 2025/10/13 14:02:08 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sample.class.hpp"
 
-int Sample::_nbInst = 0;
+int	main(void) {
+	Sample	instance;
+	Sample	*instance_ptr;
 
-Sample::Sample() {
-	std::cout << "Constructor called" << std::endl;
-	Sample::_nbInst++;
-}
-
-
-
-int Sample::getNbInst() {
-	return (Sample::_nbInst);
+	instance_ptr = &instance;
+	int Sample::*p = NULL;
+	void (Sample::*f)(void) const;
 }

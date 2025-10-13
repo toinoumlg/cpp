@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sample.class.cpp                                   :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/12 14:21:04 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/13 19:03:47 by amalangu         ###   ########.fr       */
+/*   Created: 2025/10/13 14:14:44 by amalangu          #+#    #+#             */
+/*   Updated: 2025/10/13 19:50:37 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sample.class.hpp"
+#include <iostream>
 
-int Sample::_nbInst = 0;
+int	main(int argc, char **argv) {
+	int i = 1;
 
-Sample::Sample() {
-	std::cout << "Constructor called" << std::endl;
-	Sample::_nbInst++;
-}
-
-
-
-int Sample::getNbInst() {
-	return (Sample::_nbInst);
+	if (argc == 1)
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	else {
+		while (argv[i]) {
+			int j = 0;
+			while (argv[i][j])
+				std::cout << static_cast<char>(toupper(argv[i][j++]));
+			i++;
+		}
+	}
+	std::cout << std::endl;
+	return (0);
 }

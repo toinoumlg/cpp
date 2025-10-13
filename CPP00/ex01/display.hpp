@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sample.class.cpp                                   :+:      :+:    :+:   */
+/*   display.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/12 14:21:04 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/13 19:03:47 by amalangu         ###   ########.fr       */
+/*   Created: 2025/10/13 21:32:16 by amalangu          #+#    #+#             */
+/*   Updated: 2025/10/13 22:06:18 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sample.class.hpp"
+#ifndef DISPLAY_H
+# define DISPLAY_H
 
-int Sample::_nbInst = 0;
+# include <iomanip>
+# include <iostream>
 
-Sample::Sample() {
-	std::cout << "Constructor called" << std::endl;
-	Sample::_nbInst++;
-}
+void	display_nbr(int nbr);
+void	display_10(std::string tmp);
+int		display_possible_nbr(int i);
+void	displayHeader(void);
 
-
-
-int Sample::getNbInst() {
-	return (Sample::_nbInst);
-}
+#endif

@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sample.class.cpp                                   :+:      :+:    :+:   */
+/*   phonebook.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/12 14:21:04 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/13 19:03:47 by amalangu         ###   ########.fr       */
+/*   Created: 2025/10/13 14:34:42 by amalangu          #+#    #+#             */
+/*   Updated: 2025/10/13 22:05:17 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sample.class.hpp"
+#ifndef PHONEBOOK_CLASS_H
+# define PHONEBOOK_CLASS_H
 
-int Sample::_nbInst = 0;
+# include "contact.class.hpp"
 
-Sample::Sample() {
-	std::cout << "Constructor called" << std::endl;
-	Sample::_nbInst++;
-}
+class PhoneBook {
+  public:
+	PhoneBook();
+	~PhoneBook();
 
+  private:
+	Contact _contacts[8];
+	int _created;
+	void _addContact();
+	void _prompt();
+	int _getOldest() const;
+	void _displayContacts() const;
+	void _search() const;
+	void _wrongInput() const;
+};
 
-
-int Sample::getNbInst() {
-	return (Sample::_nbInst);
-}
+#endif
