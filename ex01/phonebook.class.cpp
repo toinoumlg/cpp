@@ -6,16 +6,16 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:34:39 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/13 22:10:27 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/10/14 20:37:29 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "display.hpp"
 #include "phonebook.class.hpp"
+#include <cstdlib>
 
-PhoneBook::PhoneBook() {
+PhoneBook::PhoneBook() : _created(0) {
 	std::cout << "Welcome to my Awesome PhoneBook !" << std::endl;
-	this->_created = 0;
 	this->_prompt();
 }
 
@@ -23,13 +23,13 @@ void PhoneBook::_prompt() {
 	std::string tmp;
 	while (1) {
 		std::cout << "ADD, SEARCH, EXIT> ";
-		std::cin >> tmp;
-		if (!tmp.compare("ADD"))
+		getline(std::cin, tmp);
+		if (!tmp.compare(0, 5, "EXIT"))
+			exit(0);
+		else if (!tmp.compare(0, 4, "ADD"))
 			this->_addContact();
-		else if (!tmp.compare("SEARCH"))
+		else if (!tmp.compare(0, 7, "SEARCH"))
 			this->_search();
-		else if (!tmp.compare("EXIT"))
-			return ;
 		else
 			this->_wrongInput();
 	}

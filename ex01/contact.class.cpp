@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:34:25 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/13 22:33:52 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/10/14 14:12:35 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,16 @@
 Contact::Contact() : _index(0) {
 }
 
+void	wrongValue(void) {
+	std::cout << "Wrong input" << std::endl;
+}
+
 std::string getValue(const std::string promt) {
 	std::string tmp;
 	std::cout << promt;
-	std::cin >> tmp;
+	getline(std::cin, tmp);
+	if (!tmp.length())
+		return (wrongValue(), getValue(promt));
 	return (tmp);
 }
 

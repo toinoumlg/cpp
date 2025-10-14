@@ -6,14 +6,15 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 21:32:47 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/13 22:32:00 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/10/14 13:28:07 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "display.hpp"
+#include <cstdlib>
 
 void	display_nbr(int nbr) {
-	std::cout << std::setw(10) << std::right << nbr;
+	std::cout << std::setw(10) << std::left << nbr;
 }
 
 void	display_10(std::string tmp) {
@@ -21,13 +22,19 @@ void	display_10(std::string tmp) {
 		tmp.replace(9, 1, ".");
 		tmp.erase(10);
 	}
-	std::cout << std::setw(10) << std::right << std::string(tmp);
+	std::cout << std::setw(10) << std::left << std::string(tmp);
 }
 
+bool	is_number(const std::string s) {
+	std::string::const_iterator it = s.begin();
+	while (it != s.end() && std::isdigit(*it))
+		it++;
+	return (!s.empty() && it == s.end());
+}
 int	display_possible_nbr(int i) {
 	int	j;
-	int	input;
 
+	std::string input;
 	j = 1;
 	if (!i)
 		return (-1);
@@ -35,8 +42,8 @@ int	display_possible_nbr(int i) {
 	while (j < i)
 		std::cout << j++ << ", ";
 	std::cout << j << " > ";
-	std::cin >> input;
-	if (input > i)
+	getline(std::cin, input);
+	if (!is_number(input))
 		return (display_possible_nbr(i));
 	return (j - 1);
 }

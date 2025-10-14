@@ -1,4 +1,6 @@
 {
+	"debbuger.cwd": "ex01",
+	"debbuger.bin": "phonebook",
 	"files.associations": {
 		"iostream": "cpp",
 		"array": "cpp",
