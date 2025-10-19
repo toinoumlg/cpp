@@ -7,7 +7,7 @@
             "command": "make",
             "args": [
                 "-C",
-                "${workspaceFolder}/${config:debbuger.cwd}",
+                "${workspaceFolder}/${input:exercise}",
             ],
             "group": {
                 "kind": "build",
@@ -16,5 +16,13 @@
             "problemMatcher": ["$gcc"],
             "detail": "Build the project using the Makefile"
         }
-    ]
+    ],
+    "inputs": [
+        {
+            "id": "exercise",
+            "type": "promptString",
+            "description": "Relative path to exercise directory",
+            "default": "CPP00/ex01"
+    }
+  ]
 }

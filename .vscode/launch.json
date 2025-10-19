@@ -2,13 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch",
+      "name": "(gdb) Launch selected exercise",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/${config:debbuger.cwd}/${config:debbuger.bin}",
+      "program": "${workspaceFolder}/${input:exercise}/${input:programName}",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${workspaceFolder}/${config:debbuger.cwd}",
+      "cwd": "${workspaceFolder}/${input:exercise}",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
@@ -25,6 +25,20 @@
           "ignoreFailures": true
         }
       ]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "exercise",
+      "type": "promptString",
+      "description": "Relative path to exercise directory (e.g. CPP00/ex01)",
+      "default": "CPP00/ex01"
+    },
+    {
+      "id": "programName",
+      "type": "promptString",
+      "description": "Binary name produced by the Makefile (e.g. phonebook)",
+      "default": "phonebook"
     }
   ]
 }
