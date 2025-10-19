@@ -1,8 +1,10 @@
 {
+	"debbuger.cwd": "new and delete",
+	"debbuger.bin": "a.out",
 	"files.associations": {
-		"iostream": "cpp",
 		"array": "cpp",
 		"atomic": "cpp",
+		"hash_map": "cpp",
 		"bit": "cpp",
 		"cctype": "cpp",
 		"charconv": "cpp",
@@ -51,6 +53,7 @@
 		"initializer_list": "cpp",
 		"iomanip": "cpp",
 		"iosfwd": "cpp",
+		"iostream": "cpp",
 		"istream": "cpp",
 		"limits": "cpp",
 		"mutex": "cpp",
@@ -70,8 +73,7 @@
 		"thread": "cpp",
 		"cinttypes": "cpp",
 		"typeinfo": "cpp",
-		"variant": "cpp",
-		"hash_map": "cpp",
-		"valarray": "cpp"
+		"valarray": "cpp",
+		"variant": "cpp"
 	}
 }
