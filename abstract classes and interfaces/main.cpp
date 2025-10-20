@@ -6,32 +6,38 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 19:19:56 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/20 16:47:27 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/10/20 16:57:43 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-class Character
+class ACharacter
 {
    public:
-    virtual void sayHello();
-};
-
-class Warrior : public Character
-{
-   public:
+    virtual void attack() = 0;
     void sayHello();
 };
 
-void Character::sayHello() { std::cout << "character" << std::endl; }
-void Warrior::sayHello() { std::cout << "Warrior" << std::endl; }
+class Warrior : public ACharacter
+{
+   public:
+    virtual void attack();
+};
+
+class ICharacter
+{
+   public:
+    virtual void spwanCharacter() = 0;
+    virtual void kill() = 0;
+};
+
+void ACharacter::sayHello() { std::cout << "character" << std::endl; }
+void Warrior::attack() { std::cout << "warrior attack" << std::endl; }
 
 int main()
 {
-    Character *n = new Character;
-    Character *b = new Warrior;
+    ACharacter *b = new Warrior;
 
-    n->sayHello();
     b->sayHello();
 }
