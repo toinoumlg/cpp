@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:34:25 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/26 13:32:40 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/10/26 14:13:09 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,33 +29,33 @@ string getValue(const string promt) {
 }
 
 void Contact::set(int i) {
+	this->_index = i;
 	this->_firstname = getValue("First Name: ");
 	this->_lastname = getValue("Last Name: ");
 	this->_nickname = getValue("Nickname: ");
 	this->_phonenumber = getValue("Phonenumber: ");
 	this->_darkest = getValue("Darkest secret: ");
-	this->_index = i;
 }
 
 void Contact::display() const {
 	cout << "|";
-	display_nbr(this->_index);
+	displayNbr(this->_index);
 	cout << "|";
-	display_10(this->_firstname);
+	display10(this->_firstname);
 	cout << "|";
-	display_10(this->_lastname);
+	display10(this->_lastname);
 	cout << "|";
-	display_10(this->_nickname);
+	display10(this->_nickname);
 	cout << "|" << endl;
 }
 
 void Contact::displayFull() const {
-	cout << "Index: " << this->_index << endl;
-	cout << "First Name: " << this->_firstname << endl;
-	cout << "Last Name: " << this->_lastname << endl;
-	cout << "Nick Name: " << this->_nickname << endl;
-	cout << "Phone Number: " << this->_phonenumber << endl;
-	cout << "Darkest Secret: " << this->_darkest << endl;
+	cout << "Index: " << this->_index << endl
+	     << "First Name: " << this->_firstname << endl
+	     << "Last Name: " << this->_lastname << endl
+	     << "Nick Name: " << this->_nickname << endl
+	     << "Phone Number: " << this->_phonenumber << endl
+	     << "Darkest Secret: " << this->_darkest << endl;
 }
 
 Contact::~Contact() {}

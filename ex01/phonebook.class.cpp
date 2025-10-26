@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:34:39 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/26 13:39:34 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/10/26 14:16:43 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,20 @@
 #include "display.hpp"
 
 PhoneBook::PhoneBook() : _created(0) {
+	string input;
+
 	cout << "Welcome to my Awesome PhoneBook !" << endl;
-	this->_prompt();
-}
-
-void PhoneBook::_prompt() {
-	string tmp;
-
 	while (1) {
 		cout << "ADD, SEARCH, EXIT> ";
-		getline(cin, tmp);
-		if (!tmp.compare(0, 5, "EXIT"))
+		getline(cin, input);
+		if (!input.compare(0, 5, "EXIT"))
 			return;
-		else if (!tmp.compare(0, 4, "ADD"))
+		else if (!input.compare(0, 4, "ADD"))
 			this->_addContact();
-		else if (!tmp.compare(0, 7, "SEARCH"))
+		else if (!input.compare(0, 7, "SEARCH"))
 			this->_search();
 		else
-			this->_wrongInput();
+			cout << "Wrong input !!" << endl;
 	}
 }
 
@@ -45,23 +41,30 @@ void PhoneBook::_addContact() {
 	this->_contacts[this->_created - 1].set(this->_created);
 }
 
-void PhoneBook::_displayContacts() const {
-	int i = 0;
+int promtIndex(int i) {
+	int j;
+	string input;
 
-	while (i < this->_created)
-		this->_contacts[i++].display();
+	j = 1;
+	cout << "Possible contact nbr: ";
+	while (j < i)
+		cout << j++ << ", ";
+	cout << j << " > ";
+	getline(cin, input);
+	if (input.length() != 1 || input.at(0) - 48 < 1 || input.at(0) - 48 > i)
+		return (promtIndex(i));
+	return (input.at(0) - 48 - 1);
 }
 
 void PhoneBook::_search() const {
-	int i;
+	int i = 0;
 
 	displayHeader();
-	this->_displayContacts();
-	i = promt_possible_nbr(this->_created);
-	if (i >= 0)
-		this->_contacts[i].displayFull();
+	if (!this->_created)
+		return;
+	while (i < this->_created)
+		this->_contacts[i++].display();
+	this->_contacts[promtIndex(this->_created)].displayFull();
 }
-
-void PhoneBook::_wrongInput() const { cout << "Wrong input !!" << endl; }
 
 PhoneBook::~PhoneBook() {}

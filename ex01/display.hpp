@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 21:32:16 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/26 13:32:49 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/10/26 14:13:09 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@
 
 using namespace std;
 
-void display_nbr(int nbr);
-void display_10(string tmp);
-int promt_possible_nbr(int i);
+void displayNbr(int nbr);
+void display10(string tmp);
 void displayHeader(void);
 
 #endif
