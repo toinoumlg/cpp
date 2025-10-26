@@ -6,34 +6,31 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:34:30 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/14 14:12:02 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/10/26 13:32:42 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_H
-# define CONTACT_CLASS_H
+#define CONTACT_CLASS_H
 
-# include <ctime>
-# include <string>
+#include <string>
+using namespace std;
 
 class Contact {
-  public:
+   public:
 	Contact();
 	~Contact();
 
 	void set(int i);
 	void display() const;
 	void displayFull() const;
-	int getIndex() const;
-	time_t getCreation() const;
 
-  private:
-	std::string _firstname;
-	std::string _lastname;
-	std::string _nickname;
-	std::string _phonenumber;
-	std::string _darkest;
-	time_t _creation;
+   private:
+	string _firstname;
+	string _lastname;
+	string _nickname;
+	string _phonenumber;
+	string _darkest;
 	int _index;
 };
 

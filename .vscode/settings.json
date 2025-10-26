@@ -1,10 +1,10 @@
 {
-	"debbuger.cwd": "ex01",
+	"debbuger.cwd": "ex01", // folder when makefile is as well as binnary
 	"debbuger.bin": "phonebook",
 	"files.associations": {
-		"iostream": "cpp",
 		"array": "cpp",
 		"atomic": "cpp",
+		"hash_map": "cpp",
 		"bit": "cpp",
 		"cctype": "cpp",
 		"charconv": "cpp",
@@ -42,6 +42,7 @@
 		"optional": "cpp",
 		"random": "cpp",
 		"ratio": "cpp",
+		"source_location": "cpp",
 		"string_view": "cpp",
 		"system_error": "cpp",
 		"tuple": "cpp",
@@ -53,6 +54,7 @@
 		"initializer_list": "cpp",
 		"iomanip": "cpp",
 		"iosfwd": "cpp",
+		"iostream": "cpp",
 		"istream": "cpp",
 		"limits": "cpp",
 		"mutex": "cpp",
@@ -72,7 +74,7 @@
 		"thread": "cpp",
 		"cinttypes": "cpp",
 		"typeinfo": "cpp",
-		"variant": "cpp",
-		"hash_map": "cpp"
-	}
+		"valarray": "cpp",
+		"variant": "cpp"
+	} // binnary name in makefile
 }
