@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:34:39 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/26 14:16:43 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/10/26 14:36:37 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,18 @@ PhoneBook::PhoneBook() : _created(0) {
 }
 
 void PhoneBook::_addContact() {
+	int i;
+
 	this->_created++;
-	if (this->_created > 8)
-		this->_created = 1;
-	this->_contacts[this->_created - 1].set(this->_created);
+	if (this->_created > 8) {
+		this->_created--;
+		this->_oldest++;
+		if (this->_oldest > 8)
+			this->_oldest = 1;
+		i = this->_oldest;
+	} else
+		i = this->_created;
+	this->_contacts[i - 1].set(i);
 }
 
 int promtIndex(int i) {
