@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/04 10:53:22 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/11/04 11:14:13 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 using namespace std;
 
-string replace_occurence(string line, string to_find, string to_replace, size_t* i) {
+string replace_occurence(string line, string to_find, string to_replace,
+                         size_t* i) {
 	string new_line;
 	new_line = line;
 	new_line.erase(*i);
@@ -28,7 +29,7 @@ string replace_occurence(string line, string to_find, string to_replace, size_t*
 void parse_line(string line, string to_find, string to_replace,
                 fstream* outfile) {
 	size_t i = 0;
-	string result;
+	
 	while (i < line.length()) {
 		if (!line.compare(i, to_find.length(), to_find)) {
 			line = replace_occurence(line, to_find, to_replace, &i);
@@ -68,11 +69,13 @@ int main(int ac, char** av) {
 
 	while (getline(input, line))
 		parse_line(line, to_find, to_replace, &output);
-	if (!input.eof())
-		cerr << "Error while reading file (eof not reached)" << endl;
 
-	input.close();
 	output.close();
-
+	if (!input.eof()) {
+		input.close();
+		cerr << "Error while reading file (eof not reached)" << endl;
+		return 1;
+	}
+	input.close();
 	return 0;
 }
