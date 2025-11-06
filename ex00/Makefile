@@ -2,8 +2,8 @@ NAME = claptrap
 CC = g++
 CPPFLAGS = -Werror -Wextra -Wall -g3 -std=c++98
 
-CPP_FILES = main ClapTrap 
-HPP_FILES = ClapTrap.class
+CPP_FILES = main 
+HPP_FILES = 
 SOURCES = $(addsuffix .cpp, $(CPP_FILES))
 OBJECTS = $(SOURCES:.cpp=.o)
 HEADERS = $(addsuffix .hpp, $(HPP_FILES))
