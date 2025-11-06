@@ -1,9 +1,9 @@
-NAME = first_canon
+NAME = claptrap
 CC = g++
 CPPFLAGS = -Werror -Wextra -Wall -g3 -std=c++98
 
-CPP_FILES = main Fixed 
-HPP_FILES = Fixed.class
+CPP_FILES = main ClapTrap ScavTrap
+HPP_FILES = ClapTrap.class ScavTrap.class
 SOURCES = $(addsuffix .cpp, $(CPP_FILES))
 OBJECTS = $(SOURCES:.cpp=.o)
 HEADERS = $(addsuffix .hpp, $(HPP_FILES))

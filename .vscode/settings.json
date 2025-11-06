@@ -1,4 +1,4 @@
 {
-	"debbuger.cwd": "ex02", // folder when makefile is as well as binnary
-	"debbuger.bin": "first_canon" // binnary name in makefile
+	"debbuger.cwd": "ex00", // folder when makefile is as well as binnary
+	"debbuger.bin": "claptrap" // binnary name in makefile
 }

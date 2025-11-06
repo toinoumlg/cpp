@@ -6,24 +6,53 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/06 11:00:38 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/11/06 12:27:49 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.class.hpp"
+#include "ClapTrap.class.hpp"
+#include "FragTrap.class.hpp"
+#include "ScavTrap.class.hpp"
 
 using namespace std;
 
 int main(void) {
-	Fixed a;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << b / b << std::endl;
-	std::cout << Fixed::max(a, b) << std::endl;
+	ClapTrap first("GOAT");
+	ScavTrap second("NOT GOAT");
+	FragTrap third("HIGH");
+	second.takeDamage(50);
+	second.guardGate();
+	second.takeDamage(25);
+	second.takeDamage(25);
+	second.takeDamage(25);
+	second.beRepaired(500);
+	second.takeDamage(25);
+	second.guardGate();
+	third.highFivesGuys();
+	third.takeDamage(10);
+	third.takeDamage(10);
+	third.takeDamage(10);
+	third.takeDamage(10);
+	third.takeDamage(100);
+	third.takeDamage(10);
+	third.beRepaired(10);
+	first.beRepaired(10);
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.beRepaired(10);
+	first.takeDamage(5);
+	first.takeDamage(15);
+	first.takeDamage(15);
+	first.takeDamage(15);
 	return 0;
 }

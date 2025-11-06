@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.class.hpp                                    :+:      :+:    :+:   */
+/*   ClapTrap.class.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:13 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/06 07:21:35 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/11/06 12:19:29 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_CLASS_H
-#define FIXED_CLASS_H
+#ifndef CLAPTRAP_CLASS_H
+#define CLAPTRAP_CLASS_H
 
 #include <iostream>
+using namespace std;
 
-class Fixed {
+class ClapTrap {
    public:
-	Fixed();
-	Fixed(const Fixed& copy);
+	ClapTrap();
+	ClapTrap(const string& name);
+	~ClapTrap();
 
-	~Fixed();
+	void attack(const string& target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
 
-	int getRawBits() const;
-	void setRawBits(int const raw);
-
-	Fixed& operator=(Fixed const& copy);
-
-   private:
-	int _value;
-	static const int _decimal = 8;
+   protected:
+	string name;
+	int hp;
+	int ep;
+	int ad;
 };
 
 #endif

@@ -6,30 +6,43 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/06 07:57:52 by amalangu         ###   ########.fr       */
+/*   Updated: 2025/11/06 12:07:30 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.class.hpp"
+#include "ClapTrap.class.hpp"
+#include "ScavTrap.class.hpp"
 
 using namespace std;
 
 int main(void) {
-	Fixed a;
-
-	Fixed const b(10);
-	Fixed const c(42.42f);
-	Fixed const d(b);
-
-	a = Fixed(1234.4321f);
-
-	cout << "a is " << a << endl;
-	cout << "b is " << b << endl;
-	cout << "c is " << c << endl;
-	cout << "d is " << d << endl;
-	cout << "a is " << a.toInt() << " as integer" << endl;
-	cout << "b is " << b.toInt() << " as integer" << endl;
-	cout << "c is " << c.toInt() << " as integer" << endl;
-	cout << "d is " << d.toInt() << " as integer" << endl;
+	ClapTrap first("GOAT");
+	ScavTrap second("NOT GOAT");
+	second.takeDamage(50);
+	second.guardGate();
+	second.takeDamage(25);
+	second.takeDamage(25);
+	second.takeDamage(25);
+	second.beRepaired(500);
+	second.takeDamage(25);
+	second.guardGate();
+	first.beRepaired(10);
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.beRepaired(10);
+	first.takeDamage(5);
+	first.takeDamage(15);
+	first.takeDamage(15);
+	first.takeDamage(15);
 	return 0;
 }
