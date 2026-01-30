@@ -6,15 +6,14 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:34:30 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/26 13:32:42 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/01/30 09:49:38 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_H
 #define CONTACT_CLASS_H
 
-#include <string>
-using namespace std;
+#include <iostream>
 
 class Contact {
    public:
@@ -26,11 +25,11 @@ class Contact {
 	void displayFull() const;
 
    private:
-	string _firstname;
-	string _lastname;
-	string _nickname;
-	string _phonenumber;
-	string _darkest;
+	std::string _firstname;
+	std::string _lastname;
+	std::string _nickname;
+	std::string _phonenumber;
+	std::string _darkest;
 	int _index;
 };
 

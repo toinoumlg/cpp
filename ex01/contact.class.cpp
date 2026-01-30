@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:34:25 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/26 14:24:39 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/01/30 09:56:13 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 
 Contact::Contact() : _index(0) {}
 
-void wrongValue(void) { cout << "Wrong input" << endl; }
+void wrongValue(void) { std::cout << "Wrong input" << std::endl; }
 
-string getValue(const string promt) {
-	string tmp;
+std::string getValue(const std::string promt) {
+	std::string tmp;
 
-	cout << promt;
-	getline(cin, tmp);
+	std::cout << promt;
+	std::getline(std::cin, tmp);
+	if (std::cin.eof())
+		throw "Stdcin got closed";
 	if (!tmp.length())
 		return (wrongValue(), getValue(promt));
 	return (tmp);
@@ -38,24 +40,24 @@ void Contact::set(int i) {
 }
 
 void Contact::display() const {
-	cout << "|";
+	std::cout << "|";
 	displayNbr(this->_index);
-	cout << "|";
+	std::cout << "|";
 	display10(this->_firstname);
-	cout << "|";
+	std::cout << "|";
 	display10(this->_lastname);
-	cout << "|";
+	std::cout << "|";
 	display10(this->_nickname);
-	cout << "|" << endl;
+	std::cout << "|" << std::endl;
 }
 
 void Contact::displayFull() const {
-	cout << "Index: " << this->_index << endl
-	     << "First Name: " << this->_firstname << endl
-	     << "Last Name: " << this->_lastname << endl
-	     << "Nick Name: " << this->_nickname << endl
-	     << "Phone Number: " << this->_phonenumber << endl
-	     << "Darkest Secret: " << this->_darkest << endl;
+	std::cout << "Index: " << this->_index << std::endl
+	          << "First Name: " << this->_firstname << std::endl
+	          << "Last Name: " << this->_lastname << std::endl
+	          << "Nick Name: " << this->_nickname << std::endl
+	          << "Phone Number: " << this->_phonenumber << std::endl
+	          << "Darkest Secret: " << this->_darkest << std::endl;
 }
 
 Contact::~Contact() {}
