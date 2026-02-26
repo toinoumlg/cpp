@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:34:39 by amalangu          #+#    #+#             */
-/*   Updated: 2026/01/30 09:56:58 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 11:02:16 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 #include "display.hpp"
 
-PhoneBook::PhoneBook() : _created(0) {
+PhoneBook::PhoneBook() : _created(0), _index(0) {
 	std::string input;
 
 	std::cout << "Welcome to my Awesome PhoneBook !" << endl;
@@ -25,7 +25,7 @@ PhoneBook::PhoneBook() : _created(0) {
 		std::cout << "ADD, SEARCH, EXIT> ";
 		getline(std::cin, input);
 		if (std::cin.eof())
-			throw "Stdcin got closed";
+			throw "Standard input closed ending...";
 		if (!input.compare(0, 5, "EXIT"))
 			return;
 		else if (!input.compare(0, 4, "ADD"))
@@ -38,18 +38,12 @@ PhoneBook::PhoneBook() : _created(0) {
 }
 
 void PhoneBook::_addContact() {
-	int i;
-
-	this->_created++;
-	if (this->_created > 8) {
-		this->_created--;
-		this->_oldest++;
-		if (this->_oldest > 8)
-			this->_oldest = 1;
-		i = this->_oldest;
-	} else
-		i = this->_created;
-	this->_contacts[i - 1].set(i);
+	if (this->_index >= 8)
+		this->_index = 0;
+	this->_contacts[this->_index].set(this->_index);
+	if (this->_created < 8)
+		this->_created++;
+	this->_index++;
 }
 
 int promtIndex(int i) {
@@ -63,7 +57,7 @@ int promtIndex(int i) {
 	std::cout << j << " > ";
 	getline(std::cin, input);
 	if (std::cin.eof())
-		throw "Stdcin got closed";
+		throw "Standard input closed ending...";
 	if (input.length() != 1 || input.at(0) - 48 < 1 || input.at(0) - 48 > i)
 		return (promtIndex(i));
 	return (input.at(0) - 48 - 1);

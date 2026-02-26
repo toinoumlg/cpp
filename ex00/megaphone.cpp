@@ -6,11 +6,9 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:14:44 by amalangu          #+#    #+#             */
-/*   Updated: 2026/01/30 10:20:04 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 13:38:59 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <termios.h>
 
 #include <iostream>
 
@@ -18,6 +16,7 @@ int main(int argc, char** argv) {
 	int j;
 	int i = 1;
 
+	
 	if (argc == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	else {

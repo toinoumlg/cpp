@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:34:25 by amalangu          #+#    #+#             */
-/*   Updated: 2026/01/30 09:56:13 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 10:54:35 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ std::string getValue(const std::string promt) {
 	std::cout << promt;
 	std::getline(std::cin, tmp);
 	if (std::cin.eof())
-		throw "Stdcin got closed";
+		throw "Standard input closed ending...";
 	if (!tmp.length())
 		return (wrongValue(), getValue(promt));
 	return (tmp);
 }
 
 void Contact::set(int i) {
-	this->_index = i;
+	this->_index = i + 1;
 	this->_firstname = getValue("First Name: ");
 	this->_lastname = getValue("Last Name: ");
 	this->_nickname = getValue("Nickname: ");
