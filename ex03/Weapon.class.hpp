@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:12:44 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/04 08:39:54 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:39:29 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,17 @@
 
 #include <string>
 
-
-
-using namespace std;
-
 class Weapon {
    public:
 	Weapon();
-	Weapon(string type);
+	Weapon(std::string type);
 	~Weapon();
 
-	const string& getType() const;
-	void setType(string type);
+	const std::string& getType() const;
+	void setType(std::string type);
 
    private:
-	string _type;
+	std::string _type;
 };
 
 #endif

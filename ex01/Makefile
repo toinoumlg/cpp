@@ -1,6 +1,6 @@
 NAME = Moar
-CC = g++
-CPPFLAGS = -Werror -Wextra -Wall -g3 -std=c++98
+CC = c++
+CPPFLAGS = -Werror -Wextra -Wall -std=c++98
 
 CPP_FILES = main Zombie zombieHorde
 HPP_FILES = Zombie.class

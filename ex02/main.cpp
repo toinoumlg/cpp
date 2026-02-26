@@ -6,25 +6,23 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 13:07:30 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/04 07:58:06 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:19:24 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int main() {
-	string str = "HI THIS IS BRAIN";
-	string* strPTR = &str;
-	string& strREF = str;
+	std::string str = "HI THIS IS BRAIN";
+	std::string* strPTR = &str;
+	std::string& strREF = str;
 
-	cout << "Memory address str: " << &str << endl
-	     << "Memory address strPTR: " << strPTR << endl
-	     << "Memory address strREF: " << &strREF << endl;
+	std::cout << "Memory address str: " << &str << std::endl
+	          << "Memory address strPTR: " << strPTR << std::endl
+	          << "Memory address strREF: " << &strREF << std::endl;
 
-	cout << "Value str: " << str << endl
-	     << "Value strPTR: " << *strPTR << endl
-	     << "Value strREF: " << strREF << endl;
+	std::cout << "Value str: " << str << std::endl
+	          << "Value strPTR: " << *strPTR << std::endl
+	          << "Value strREF: " << strREF << std::endl;
 }

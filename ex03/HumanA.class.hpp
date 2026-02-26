@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:19:00 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/04 08:44:21 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:47:53 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 
 class HumanA {
    public:
-	HumanA(string name, Weapon *weapon);
+	HumanA(const std::string& name, Weapon& weapon);
 	~HumanA();
 	void attack() const;
 
    private:
-	string _name;
-	Weapon *_weapon;
+	const std::string& _name;
+	Weapon& _weapon;
 };
 
 #endif

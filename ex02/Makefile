@@ -1,6 +1,6 @@
 NAME = ptrref
-CC = g++
-CPPFLAGS = -Werror -Wextra -Wall -g3 -std=c++98
+CC = c++
+CPPFLAGS = -Werror -Wextra -Wall -std=c++98
 
 CPP_FILES = main 
 SOURCES = $(addsuffix .cpp, $(CPP_FILES))

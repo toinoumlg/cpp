@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 12:59:27 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/27 13:51:20 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:18:37 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 Zombie::Zombie() {}
 
 void Zombie::annonce() {
-	cout << this->_name << ": BraiiiiiiinnnzzzZ..." << endl;
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void Zombie::setName(string name) { this->_name = name; }
+void Zombie::setName(std::string name) { this->_name = name; }
 
-Zombie::~Zombie() { cout << this->_name << ": Died !" << endl; }
+Zombie::~Zombie() { std::cout << this->_name << ": Died !" << std::endl; }

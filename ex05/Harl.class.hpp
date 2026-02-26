@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 10:53:44 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/04 10:57:39 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:24:03 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 
 #include <string>
 
-using namespace std;
-
 class Harl {
    public:
 	Harl();
 	~Harl();
 
-	void complain(string level) const;
+	void complain(std::string level) const;
 
    private:
 	void debug() const;

@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:32:17 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/04 08:43:00 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:47:17 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 class HumanB {
    public:
-	HumanB(string name);
+	HumanB(std::string name);
 	~HumanB();
 	void attack() const;
-	void setWeapon(Weapon *weapon);
+	void setWeapon(Weapon& weapon);
 
    private:
-	string _name;
-	Weapon *_weapon;
+	std::string _name;
+	Weapon* _weapon;
 };
 
 #endif

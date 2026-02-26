@@ -6,18 +6,16 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/04 11:14:13 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 21:12:28 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fstream>
 #include <iostream>
 
-using namespace std;
-
-string replace_occurence(string line, string to_find, string to_replace,
-                         size_t* i) {
-	string new_line;
+std::string replace_occurence(std::string line, std::string to_find,
+                              std::string to_replace, size_t* i) {
+	std::string new_line;
 	new_line = line;
 	new_line.erase(*i);
 	new_line += to_replace;
@@ -26,29 +24,34 @@ string replace_occurence(string line, string to_find, string to_replace,
 	return new_line;
 }
 
-void parse_line(string line, string to_find, string to_replace,
-                fstream* outfile) {
+void parse_line(std::string line, std::string to_find, std::string to_replace,
+                std::fstream* outfile) {
 	size_t i = 0;
-	
+
+	if (!line.length())
+		return;
 	while (i < line.length()) {
 		if (!line.compare(i, to_find.length(), to_find)) {
 			line = replace_occurence(line, to_find, to_replace, &i);
 		} else
 			i++;
 	}
-	*outfile << line << endl;
+	*outfile << line << std::endl;
 }
 
-int init_files(fstream* input, fstream* output, char* input_path) {
+int init_files(std::fstream* input, std::fstream* output, char* input_path) {
 	try {
-		input->open(input_path, ios::in);
+		input->open(input_path, std::ios::in);
 		if (!input->is_open())
-			throw exception();
-		output->open("outfile.txt", ios::out | ios::trunc);
+			throw std::exception();
+		std::string output_path = input_path;
+		output_path.append(".replace");
+
+		output->open(output_path.c_str(), std::ios::out | std::ios::trunc);
 		if (!output->is_open())
-			throw exception();
-	} catch (exception& e) {
-		cerr << "Error opening files" << endl;
+			throw std::exception();
+	} catch (std::exception& e) {
+		std::cerr << "Error opening files" << std::endl;
 		if (input->is_open())
 			input->close();
 		return 1;
@@ -57,15 +60,22 @@ int init_files(fstream* input, fstream* output, char* input_path) {
 }
 
 int main(int ac, char** av) {
-	fstream input;
-	fstream output;
+	std::fstream input;
+	std::fstream output;
 
 	if (ac != 4 || init_files(&input, &output, av[1]))
 		return 1;
 
-	string line;
-	string to_find = av[2];
-	string to_replace = av[3];
+	std::string line;
+	std::string to_find = av[2];
+	std::string to_replace = av[3];
+
+	if (!to_find.length() || !to_replace.length()) {
+		input.close();
+		output.close();
+		std::cerr << "Invalid arguments (empty argv)" << std::endl;
+		return 1;
+	}
 
 	while (getline(input, line))
 		parse_line(line, to_find, to_replace, &output);
@@ -73,7 +83,7 @@ int main(int ac, char** av) {
 	output.close();
 	if (!input.eof()) {
 		input.close();
-		cerr << "Error while reading file (eof not reached)" << endl;
+		std::cerr << "Error while reading file (eof not reached)" << std::endl;
 		return 1;
 	}
 	input.close();
