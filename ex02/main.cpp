@@ -6,13 +6,11 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/06 11:00:38 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:03:36 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.class.hpp"
-
-using namespace std;
 
 int main(void) {
 	Fixed a;

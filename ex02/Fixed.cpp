@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:10 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/06 10:59:24 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:04:07 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,27 +70,27 @@ Fixed Fixed::operator--(int) {
 }
 
 // comparaison
-Fixed Fixed::operator>(Fixed const& cmp) const {
+bool Fixed::operator>(Fixed const& cmp) const {
 	return this->_value > cmp._value;
 }
 
-Fixed Fixed::operator>=(Fixed const& cmp) const {
+bool Fixed::operator>=(Fixed const& cmp) const {
 	return this->_value >= cmp._value;
 }
 
-Fixed Fixed::operator<(Fixed const& cmp) const {
+bool Fixed::operator<(Fixed const& cmp) const {
 	return this->_value < cmp._value;
 }
 
-Fixed Fixed::operator<=(Fixed const& cmp) const {
+bool Fixed::operator<=(Fixed const& cmp) const {
 	return this->_value <= cmp._value;
 }
 
-Fixed Fixed::operator==(Fixed const& cmp) const {
+bool Fixed::operator==(Fixed const& cmp) const {
 	return this->_value == cmp._value;
 }
 
-Fixed Fixed::operator!=(Fixed const& cmp) const {
+bool Fixed::operator!=(Fixed const& cmp) const {
 	return this->_value != cmp._value;
 }
 
@@ -141,7 +141,7 @@ const Fixed& Fixed::max(const Fixed& f1, const Fixed& f2) {
 Fixed::~Fixed() {
 }
 
-ostream& operator<<(ostream& output, Fixed const& fixed) {
+std::ostream& operator<<(std::ostream& output, Fixed const& fixed) {
 	output << fixed.toFloat();
 	return output;
 }

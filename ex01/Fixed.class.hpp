@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:13 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/06 07:57:45 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:04:24 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define FIXED_CLASS_H
 
 #include <iostream>
-using namespace std;
 
 class Fixed {
    public:
@@ -38,6 +37,6 @@ class Fixed {
 	static const int _decimal = 8;
 };
 
-ostream& operator<<(ostream& output, Fixed const& fixed);
+std::ostream& operator<<(std::ostream& output, Fixed const& fixed);
 
 #endif

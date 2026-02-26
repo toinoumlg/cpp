@@ -6,39 +6,39 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:10 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/06 08:10:00 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:05:17 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.class.hpp"
 
 Fixed::Fixed() : _value(0) {
-	cout << "Default constructor called" << endl;
+	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& copy) : _value(copy._value) {
-	cout << "Copy constructor called" << endl;
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int value) {
-	cout << "Int constructor called" << endl;
+	std::cout << "Int constructor called" << std::endl;
 	this->_value = value * (1 << this->_decimal);
 }
 
 Fixed::Fixed(const float value) {
-	cout << "Float constructor called" << endl;
+	std::cout << "Float constructor called" << std::endl;
 	this->_value =
 	    value * float(1 << this->_decimal) + (value >= 0 ? 0.5 : -0.5);
 }
 
 Fixed& Fixed::operator=(Fixed const& copy) {
-	cout << "Copy assignment operator called" << endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	this->_value = copy._value;
 	return *this;
 }
 
 int Fixed::getRawBits() const {
-	cout << "getRawBits member function called" << endl;
+	std::cout << "getRawBits member function called" << std::endl;
 	return this->_value;
 }
 
@@ -55,10 +55,10 @@ int Fixed::toInt() const {
 }
 
 Fixed::~Fixed() {
-	cout << "Destructor called" << endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
-ostream& operator<<(ostream& output, Fixed const& fixed) {
+std::ostream& operator<<(std::ostream& output, Fixed const& fixed) {
 	output << fixed.toFloat();
 	return output;
 }
