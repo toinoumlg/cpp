@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2026/02/26 21:12:28 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/27 10:50:23 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int init_files(std::fstream* input, std::fstream* output, char* input_path) {
 		if (!output->is_open())
 			throw std::exception();
 	} catch (std::exception& e) {
-		std::cerr << "Error opening files" << std::endl;
+		std::cerr << "Error setting files" << std::endl;
 		if (input->is_open())
 			input->close();
 		return 1;
