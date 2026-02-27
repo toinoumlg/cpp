@@ -6,12 +6,11 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:34:34 by amalangu          #+#    #+#             */
-/*   Updated: 2026/01/30 10:20:23 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/27 18:00:23 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <termios.h>
-
 #include <csignal>
 
 #include "contact.class.hpp"
@@ -24,7 +23,6 @@ int main(void) {
 	tcgetattr(0, &tty);
 	tty.c_lflag &= ~(ISIG);
 	tcsetattr(0, 0, &tty);
-	signal(SIGINT, signalHandler);
 	try {
 		PhoneBook phonebook;
 	} catch (const char* e) {
