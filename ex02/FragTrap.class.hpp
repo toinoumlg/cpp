@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:13 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/06 12:23:34 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/02 12:01:51 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@
 #include <iostream>
 
 #include "ClapTrap.class.hpp"
-using namespace std;
 
 class FragTrap : public ClapTrap {
    public:
-	FragTrap(const string& name);
+	FragTrap(const std::string& name);
 	~FragTrap();
 
 	void highFivesGuys() const;

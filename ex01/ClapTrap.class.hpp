@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:13 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/06 12:19:29 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/02 12:01:51 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 #define CLAPTRAP_CLASS_H
 
 #include <iostream>
-using namespace std;
 
 class ClapTrap {
    public:
 	ClapTrap();
-	ClapTrap(const string& name);
+	ClapTrap(const std::string& name);
 	~ClapTrap();
 
-	void attack(const string& target);
+	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 
    protected:
-	string name;
+	std::string name;
 	int hp;
 	int ep;
 	int ad;

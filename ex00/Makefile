@@ -1,6 +1,6 @@
 NAME = claptrap
-CC = g++
-CPPFLAGS = -Werror -Wextra -Wall -g3 -std=c++98
+CC = c++
+CPPFLAGS = -Werror -Wextra -Wall -std=c++98
 
 CPP_FILES = main ClapTrap 
 HPP_FILES = ClapTrap.class
@@ -11,7 +11,7 @@ HEADERS = $(addsuffix .hpp, $(HPP_FILES))
 all: $(NAME)
 
 $(NAME): $(OBJECTS) $(HEADERS)
-	$(CC) $(CPPFLAGS) $^ -o $@
+	$(CC) $(CPPFLAGS) $(OBJECTS) -o $@
 
 %.o: %.cpp $(HEADERS)
 	$(CC) $(CPPFLAGS) -c $< -o $@
