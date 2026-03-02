@@ -11,7 +11,7 @@ HEADERS = $(addsuffix .hpp, $(HPP_FILES))
 all: $(NAME)
 
 $(NAME): $(OBJECTS) $(HEADERS)
-	$(CC) $(CPPFLAGS) $^ -o $@
+	$(CC) $(CPPFLAGS) $(OBJECTS) -o $@
 
 %.o: %.cpp $(HEADERS)
 	$(CC) $(CPPFLAGS) -c $< -o $@
