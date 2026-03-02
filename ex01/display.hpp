@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 21:32:16 by amalangu          #+#    #+#             */
-/*   Updated: 2025/10/26 14:13:09 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:49:17 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 #include <iomanip>
 #include <iostream>
 
-using namespace std;
-
 void displayNbr(int nbr);
-void display10(string tmp);
+void display10(std::string tmp);
 void displayHeader(void);
 
 #endif

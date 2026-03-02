@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:34:39 by amalangu          #+#    #+#             */
-/*   Updated: 2026/02/26 11:02:16 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:49:47 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 PhoneBook::PhoneBook() : _created(0), _index(0) {
 	std::string input;
 
-	std::cout << "Welcome to my Awesome PhoneBook !" << endl;
+	std::cout << "Welcome to my Awesome PhoneBook !" << std::endl;
 
 	while (1) {
 		std::cout << "ADD, SEARCH, EXIT> ";
@@ -33,7 +33,7 @@ PhoneBook::PhoneBook() : _created(0), _index(0) {
 		else if (!input.compare(0, 7, "SEARCH"))
 			this->_search();
 		else
-			std::cout << "Wrong input !!" << endl;
+			std::cout << "Wrong input !!" << std::endl;
 	}
 }
 

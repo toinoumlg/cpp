@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 21:32:47 by amalangu          #+#    #+#             */
-/*   Updated: 2026/01/30 09:49:54 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:49:56 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void displayHeader(void) {
 	display10("Last name");
 	std::cout << "|";
 	display10("Nick name");
-	std::cout << "|" << endl;
+	std::cout << "|" << std::endl;
 }
