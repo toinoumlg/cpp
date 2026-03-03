@@ -76,5 +76,5 @@
 		"typeinfo": "cpp",
 		"valarray": "cpp",
 		"variant": "cpp"
-	} // binnary name in makefile
+	}
 }
