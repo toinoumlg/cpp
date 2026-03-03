@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 10:51:09 by amalangu          #+#    #+#             */
-/*   Updated: 2026/02/26 20:56:07 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/03 13:42:18 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,13 @@ void Harl::info() const {
 	          << "You didn't put enough bacon in my burger! "
 	          << "If you did, I wouldn't be asking for more!" << std::endl;
 }
+
 void Harl::warning() const {
 	std::cout << "I think I deserve to have some extra bacon for free. "
 	          << "I've been coming for years,whereas you started "
 	          << "working here just last month." << std::endl;
 }
+
 void Harl::error() const {
 	std::cout << "This is unacceptable! I want to speak to the manager now."
 	          << std::endl;
