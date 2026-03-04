@@ -3,7 +3,7 @@ CC = c++
 CPPFLAGS = -Werror -Wextra -Wall -std=c++98
 
 CPP_FILES = main Zombie newZombie randomChump
-HPP_FILES = Zombie.class
+HPP_FILES = Zombie
 SOURCES = $(addsuffix .cpp, $(CPP_FILES))
 OBJECTS = $(SOURCES:.cpp=.o)
 HEADERS = $(addsuffix .hpp, $(HPP_FILES))

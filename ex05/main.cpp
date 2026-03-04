@@ -6,13 +6,13 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 11:03:34 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/04 11:11:39 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/04 11:04:41 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#include "Harl.class.hpp"
+#include "Harl.hpp"
 
 int main() {
 	Harl test;

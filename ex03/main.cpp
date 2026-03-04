@@ -6,13 +6,13 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 13:07:30 by amalangu          #+#    #+#             */
-/*   Updated: 2026/02/26 20:51:25 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/04 10:45:28 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.class.hpp"
-#include "HumanB.class.hpp"
-#include "Weapon.class.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
 int main() {
 	{

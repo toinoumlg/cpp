@@ -3,7 +3,7 @@ CC = c++
 CPPFLAGS = -Werror -Wextra -Wall -std=c++98
 
 CPP_FILES = main Harl
-HPP_FILES = Harl.class
+HPP_FILES = Harl
 SOURCES = $(addsuffix .cpp, $(CPP_FILES))
 OBJECTS = $(SOURCES:.cpp=.o)
 HEADERS = $(addsuffix .hpp, $(HPP_FILES))

@@ -6,13 +6,13 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:23:16 by amalangu          #+#    #+#             */
-/*   Updated: 2026/02/26 20:46:38 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/04 10:45:28 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "HumanA.hpp"
 
-#include "HumanA.class.hpp"
+#include <iostream>
 
 HumanA::HumanA(const std::string& name, Weapon& weapon)
     : _name(name), _weapon(weapon) {}
@@ -22,4 +22,4 @@ void HumanA::attack() const {
 	          << this->_weapon.getType() << std::endl;
 }
 
-HumanA::~HumanA() {};
+HumanA::~HumanA(){};

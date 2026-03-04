@@ -6,13 +6,13 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 12:59:27 by amalangu          #+#    #+#             */
-/*   Updated: 2026/02/26 20:18:37 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/04 10:45:28 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Zombie.hpp"
 
-#include "Zombie.class.hpp"
+#include <iostream>
 
 Zombie::Zombie() {}
 

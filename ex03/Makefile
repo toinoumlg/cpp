@@ -3,7 +3,7 @@ CC = c++
 CPPFLAGS = -Werror -Wextra -Wall -std=c++98
 
 CPP_FILES = main Weapon HumanA HumanB Weapon
-HPP_FILES = Weapon.class HumanA.class HumanB.class
+HPP_FILES = Weapon HumanA HumanB
 SOURCES = $(addsuffix .cpp, $(CPP_FILES))
 OBJECTS = $(SOURCES:.cpp=.o)
 HEADERS = $(addsuffix .hpp, $(HPP_FILES))
