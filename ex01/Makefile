@@ -3,7 +3,7 @@ CC = c++
 CPPFLAGS = -Werror -Wextra -Wall -std=c++98
 
 CPP_FILES = main Fixed 
-HPP_FILES = Fixed.class
+HPP_FILES = Fixed
 SOURCES = $(addsuffix .cpp, $(CPP_FILES))
 OBJECTS = $(SOURCES:.cpp=.o)
 HEADERS = $(addsuffix .hpp, $(HPP_FILES))

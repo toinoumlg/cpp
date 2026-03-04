@@ -6,21 +6,17 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:10 by amalangu          #+#    #+#             */
-/*   Updated: 2026/02/26 20:04:07 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/04 11:39:44 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.class.hpp"
+#include "Fixed.hpp"
 
-Fixed::Fixed() : _value(0) {
-}
+Fixed::Fixed() : _value(0) {}
 
-Fixed::Fixed(const Fixed& copy) : _value(copy._value) {
-}
+Fixed::Fixed(const Fixed& copy) : _value(copy._value) {}
 
-Fixed::Fixed(const int value) {
-	this->_value = value * (1 << this->_decimal);
-}
+Fixed::Fixed(const int value) { this->_value = value * (1 << this->_decimal); }
 
 Fixed::Fixed(const float value) {
 	this->_value = value * (1 << this->_decimal) + (value >= 0 ? 0.5 : -0.5);
@@ -94,21 +90,15 @@ bool Fixed::operator!=(Fixed const& cmp) const {
 	return this->_value != cmp._value;
 }
 
-int Fixed::getRawBits() const {
-	return this->_value;
-}
+int Fixed::getRawBits() const { return this->_value; }
 
-void Fixed::setRawBits(int const raw) {
-	this->_value = raw;
-}
+void Fixed::setRawBits(int const raw) { this->_value = raw; }
 
 float Fixed::toFloat() const {
 	return this->_value / float(1 << this->_decimal);
 }
 
-int Fixed::toInt() const {
-	return this->_value / (1 << this->_decimal);
-}
+int Fixed::toInt() const { return this->_value / (1 << this->_decimal); }
 
 Fixed& Fixed::min(Fixed& f1, Fixed& f2) {
 	if (f1._value > f2._value)
@@ -138,10 +128,9 @@ const Fixed& Fixed::max(const Fixed& f1, const Fixed& f2) {
 		return f1;
 }
 
-Fixed::~Fixed() {
-}
-
 std::ostream& operator<<(std::ostream& output, Fixed const& fixed) {
 	output << fixed.toFloat();
 	return output;
 }
+
+Fixed::~Fixed() {}

@@ -6,4 +6,3 @@ ColumnLimit: 80
 BreakBeforeBraces: Attach
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: false

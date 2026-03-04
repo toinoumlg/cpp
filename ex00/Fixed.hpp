@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.class.hpp                                    :+:      :+:    :+:   */
+/*   Fixed.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -19,13 +19,13 @@ class Fixed {
    public:
 	Fixed();
 	Fixed(const Fixed& copy);
+	Fixed& operator=(Fixed const& copy);
 
 	~Fixed();
 
 	int getRawBits() const;
 	void setRawBits(int const raw);
 
-	Fixed& operator=(Fixed const& copy);
 
    private:
 	int _value;

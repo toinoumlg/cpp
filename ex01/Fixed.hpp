@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.class.hpp                                    :+:      :+:    :+:   */
+/*   Fixed.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:13 by amalangu          #+#    #+#             */
-/*   Updated: 2026/02/26 20:03:14 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/02/26 20:04:24 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,36 +27,10 @@ class Fixed {
 	int getRawBits() const;
 	void setRawBits(int const raw);
 
-	// convertion
 	int toInt() const;
 	float toFloat() const;
 
-	// operation
 	Fixed& operator=(Fixed const& copy);
-	Fixed operator+(Fixed const& addition) const;
-	Fixed operator-(Fixed const& negate) const;
-	Fixed operator*(Fixed const& mult) const;
-	Fixed operator/(Fixed const& divider) const;
-
-	// increment/decrement
-	Fixed& operator++();
-	Fixed operator++(int);
-	Fixed& operator--();
-	Fixed operator--(int);
-
-	// comparaison
-	bool operator>(Fixed const& cmp) const;
-	bool operator>=(Fixed const& cmp) const;
-	bool operator<(Fixed const& cmp) const;
-	bool operator<=(Fixed const& cmp) const;
-	bool operator==(Fixed const& cmp) const;
-	bool operator!=(Fixed const& cmp) const;
-
-	// member functions
-	static Fixed& min(Fixed& f1, Fixed& f2);
-	static const Fixed& min(const Fixed& f1, const Fixed& f2);
-	static Fixed& max(Fixed& f1, Fixed& f2);
-	static const Fixed& max(const Fixed& f1, const Fixed& f2);
 
    private:
 	int _value;
