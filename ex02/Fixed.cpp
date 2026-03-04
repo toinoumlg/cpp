@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:10 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/04 11:39:44 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/04 11:58:42 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int Fixed::getRawBits() const { return this->_value; }
 void Fixed::setRawBits(int const raw) { this->_value = raw; }
 
 float Fixed::toFloat() const {
-	return this->_value / float(1 << this->_decimal);
+	return this->_value / static_cast<float>(1 << this->_decimal);
 }
 
 int Fixed::toInt() const { return this->_value / (1 << this->_decimal); }
