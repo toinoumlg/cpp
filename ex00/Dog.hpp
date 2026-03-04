@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.class.cpp                                   :+:      :+:    :+:   */
+/*   Dog.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 14:19:51 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/03 14:30:13 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/03 14:33:09 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.class.hpp"
+#ifndef DOG_CLASS_H
+#define DOG_CLASS_H
 
-#include <iostream>
+#include "Animal.hpp"
 
-Dog::Dog() {
-	std::cout << "Dog constructed" << std::endl;
-}
+class Dog : Animal {
+   public:
+	Dog();
+	Dog(const std::string type);
+	Dog(const Dog& other);
+	~Dog();
 
-void Dog::makeSound() const {
-	std::cout << "woof woof 🐶" << std::endl;
-}
+	Dog& Dog::operator=(const Dog& other);
+	virtual void makeSound() const;
 
-Dog::~Dog() {
-	std::cout << "Dog destucted" << std::endl;
-}
+   protected:
+	std::string type;
+};
+
+#endif

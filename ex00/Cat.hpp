@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.class.hpp                                      :+:      :+:    :+:   */
+/*   Dog.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #ifndef DOG_CLASS_H
 #define DOG_CLASS_H
 
-#include "Animal.class.hpp"
+#include "Animal.hpp"
 
 class Dog : Animal {
    public:

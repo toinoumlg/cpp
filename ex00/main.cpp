@@ -6,9 +6,13 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2025/11/06 12:30:57 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/04 16:33:48 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Animal.hpp"
+
 int main(void) {
+	Animal *test = new Animal();
+	
 }

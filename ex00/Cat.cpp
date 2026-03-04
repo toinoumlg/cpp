@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.class.cpp                                   :+:      :+:    :+:   */
+/*   Dog.class.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,18 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.class.hpp"
-
 #include <iostream>
 
-Animal::Animal() {
-	std::cout << "Animal constructed" << std::endl;
+#include "Dog.hpp"
+
+Dog::Dog() {
+	std::cout << "Dog constructed" << std::endl;
 }
 
-void Animal::makeSound() const {
-	std::cout << "Animal made a sound" << std::endl;
+void Dog::makeSound() const {
+	std::cout << "woof woof 🐶" << std::endl;
 }
 
-Animal::~Animal() {
-	std::cout << "Animal destucted" << std::endl;
+Dog::~Dog() {
+	std::cout << "Dog destucted" << std::endl;
 }
