@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/03 16:09:48 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/04 15:20:26 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,21 @@ int main(int ac, char** av) {
 	std::fstream input;
 	std::fstream output;
 
-	if (ac != 4 || init_files(&input, &output, av[1]))
+	if (ac != 4) {
+		std::cerr << "Invalid arguments" << std::endl;
 		return 1;
+	}
 
 	std::string line;
 	std::string to_find = av[2];
 	std::string to_replace = av[3];
 
-	if (!to_find.length() || !to_replace.length()) {
-		input.close();
-		output.close();
-		std::cerr << "Invalid arguments (empty argv)" << std::endl;
+	if (!to_find.length()) {
+		std::cerr << "Nothing to find" << std::endl;
 		return 1;
 	}
+	if (init_files(&input, &output, av[1]))
+		return 1;
 
 	while (getline(input, line))
 		parse_line(line, to_find, to_replace, &output);

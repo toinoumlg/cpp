@@ -3,17 +3,16 @@ CC = c++
 CPPFLAGS = -Werror -Wextra -Wall -std=c++98
 
 CPP_FILES = main 
-HPP_FILES = 
 SOURCES = $(addsuffix .cpp, $(CPP_FILES))
 OBJECTS = $(SOURCES:.cpp=.o)
 HEADERS = $(addsuffix .hpp, $(HPP_FILES))
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) $(HEADERS)
+$(NAME): $(OBJECTS)
 	$(CC) $(CPPFLAGS) $(OBJECTS) -o $@
 
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp
 	$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:
