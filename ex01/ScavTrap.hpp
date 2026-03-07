@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.class.hpp                                 :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:13 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/02 12:01:51 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:20:59 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 
-#include "ClapTrap.class.hpp"
+#include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap {
    public:
