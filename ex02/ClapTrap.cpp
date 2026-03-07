@@ -6,11 +6,11 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:10 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/02 12:01:51 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:50:57 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.class.hpp"
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() {
 	std::cout << "🤖 ClapTrap default contructor called" << std::endl;

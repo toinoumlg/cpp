@@ -3,7 +3,7 @@ CC = c++
 CPPFLAGS = -Werror -Wextra -Wall -std=c++98
 
 CPP_FILES = main ClapTrap ScavTrap FragTrap
-HPP_FILES = ClapTrap.class ScavTrap.class FragTrap.class
+HPP_FILES = ClapTrap ScavTrap FragTrap
 SOURCES = $(addsuffix .cpp, $(CPP_FILES))
 OBJECTS = $(SOURCES:.cpp=.o)
 HEADERS = $(addsuffix .hpp, $(HPP_FILES))

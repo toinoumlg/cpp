@@ -6,11 +6,11 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:10 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/02 12:01:51 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/05 16:42:23 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.class.hpp"
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() {
 	std::cout << "🤖 ClapTrap default contructor called" << std::endl;
@@ -21,6 +21,22 @@ ClapTrap::ClapTrap(const std::string& name)
 	std::cout << "🤖 ClapTrap " << this->_name << " created with "
 	          << this->_hp << " HP, " << this->_ep << " EP and " << this->_ad
 	          << " AD." << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& other)
+    : _name(other._name), _hp(other._hp), _ep(other._ep), _ad(other._ad) {
+	std::cout << "ClapTrap copy constructor called" << std::endl;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
+	if (this != &other) {
+		this->_name = other._name;
+		this->_ep = other._ep;
+		this->_ad = other._ad;
+		this->_hp = other._hp;
+	}
+	std::cout << "ClapTrap assignment operator called" << std::endl;
+	return *this;
 }
 
 void ClapTrap::attack(const std::string& target) {

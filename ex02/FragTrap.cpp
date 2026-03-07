@@ -6,11 +6,11 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:10 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/02 12:01:51 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:49:46 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.class.hpp"
+#include "FragTrap.hpp"
 
 FragTrap::FragTrap(const std::string& name) {
 	this->name = name;
