@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:10 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/09 15:19:42 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/09 15:33:44 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) {
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& other) {
-	std::cout << "🤖 ClapTrap assignment operator called" << std::endl;
+	std::cout << "🤖 FragTrap assignment operator called" << std::endl;
 	if (this == &other)
 		return *this;
 	name = other.name;

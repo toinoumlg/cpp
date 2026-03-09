@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:10 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/09 15:22:00 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/09 15:38:28 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
+	std::cout << "ScavTrap assignment operator called" << std::endl;
 	if (this == &other)
 		return *this;
 	name = other.name;
 	ep = other.ep;
 	ad = other.ad;
 	hp = other.hp;
-	std::cout << "ClapTrap assignment operator called" << std::endl;
 	return *this;
 }
 

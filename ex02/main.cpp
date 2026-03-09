@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/09 15:22:47 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/09 15:40:28 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,24 @@ int main(void) {
 	third.takeDamage(10);
 	third.beRepaired(10);
 	first.beRepaired(10);
-	first.attack("RATIO");
-	first.attack("RATIO");
-	first.attack("RATIO");
-	first.attack("RATIO");
-	first.attack("RATIO");
-	first.attack("RATIO");
-	first.attack("RATIO");
-	first.attack("RATIO");
-	first.attack("RATIO");
-	first.attack("RATIO");
-	first.attack("RATIO");
-	first.attack("RATIO");
+	first.attack("TARGET 1");
+	first.attack("TARGET 1");
+	first.attack("TARGET 1");
+	first.attack("TARGET 1");
+	first.attack("TARGET 1");
+	first.attack("TARGET 1");
+	first.attack("TARGET 1");
+	first.attack("TARGET 1");
+	first.attack("TARGET 1");
+	first.attack("TARGET 1");
+	first.attack("TARGET 1");
+	first.attack("TARGET 1");
+	second.attack("TARGET 2");
+	second.attack("TARGET 2");
+	second.attack("TARGET 2");
+	second.attack("TARGET 2");
+	second.attack("TARGET 2");
+	second.attack("TARGET 2");
 	first.beRepaired(10);
 	first.takeDamage(5);
 	first.takeDamage(15);

@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:10 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/09 15:14:47 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/09 15:38:43 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void ClapTrap::attack(const std::string& target) {
 
 	if (ep > 0) {
 		ep--;
-		std::cout << "⚔️ ClapTrap " << name << " attacks " << target
+		std::cout << "⚔️  ClapTrap " << name << " attacks " << target
 		          << ", causing " << ad << " points of damage!" << std::endl;
 	} else
 		std::cout << "❌ ClapTrap " << name << " can't attack, " << ep
