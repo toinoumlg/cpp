@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:13 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/05 14:20:59 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/09 14:45:45 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,12 @@
 
 class ScavTrap : public ClapTrap {
    public:
+	ScavTrap();
 	ScavTrap(const std::string& name);
+	ScavTrap(const ScavTrap& other);
 	~ScavTrap();
+
+	ScavTrap& operator=(const ScavTrap& other);
 
 	void attack(const std::string& target);
 	void guardGate() const;

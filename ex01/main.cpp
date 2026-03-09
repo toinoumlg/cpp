@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/05 14:21:35 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/09 15:23:17 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,9 @@
 
 int main(void) {
 	ClapTrap first("GOAT");
-	ScavTrap second("NOT GOAT");
-	second.takeDamage(50);
-	second.guardGate();
-	second.takeDamage(25);
-	second.takeDamage(25);
-	second.takeDamage(25);
-	second.beRepaired(500);
-	second.takeDamage(25);
-	second.guardGate();
+	ScavTrap second("Not Goat");
+	ScavTrap third;
+	third = second;
 	first.beRepaired(10);
 	first.attack("RATIO");
 	first.attack("RATIO");
@@ -35,6 +29,22 @@ int main(void) {
 	first.attack("RATIO");
 	first.attack("RATIO");
 	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	first.attack("RATIO");
+	second.attack("NO RATIO");
+	second.attack("NO RATIO");
+	second.attack("NO RATIO");
+	second.guardGate();
+	second.guardGate();
+	second.attack("NO RATIO");
+	second.attack("NO RATIO");
+	second.attack("NO RATIO");
+	second.attack("NO RATIO");
 	first.attack("RATIO");
 	first.attack("RATIO");
 	first.beRepaired(10);

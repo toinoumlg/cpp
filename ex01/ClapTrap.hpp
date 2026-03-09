@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:13 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/05 16:29:16 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/09 14:46:55 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ class ClapTrap {
    public:
 	ClapTrap();
 	ClapTrap(const std::string& name);
+	ClapTrap(const ClapTrap& other);
 	~ClapTrap();
+
+	ClapTrap& operator=(const ClapTrap& other);
 
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);

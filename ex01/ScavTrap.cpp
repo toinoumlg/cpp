@@ -6,50 +6,68 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 06:28:10 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/05 14:21:38 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/09 15:19:51 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(const std::string& name) {
+ScavTrap::ScavTrap() : ClapTrap() {
+	hp = 100;
+	ep = 50;
+	ad = 20;
+	std::cout << "🤖 ScavTrap default contructor called !" << std::endl;
+}
+
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap() {
 	this->name = name;
-	this->hp = 100;
-	this->ep = 50;
-	this->ad = 20;
-	std::cout << "🤖 ScavTrap " << this->name << " created with " << this->hp
-	          << " HP, " << this->ep << " EP and " << this->ad << " AD."
-	          << std::endl;
+	hp = 100;
+	ep = 50;
+	ad = 20;
+	std::cout << "🤖 ScavTrap " << name << " created with " << hp << " HP, "
+	          << ep << " EP and " << ad << " AD." << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
+	std::cout << "🤖 ScavTrap copy operator called" << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
+	std::cout << "🤖 ScavTrap assignment operator called" << std::endl;
+	if (this == &other)
+		return *this;
+	name = other.name;
+	ep = other.ep;
+	ad = other.ad;
+	hp = other.hp;
+	return *this;
 }
 
 void ScavTrap::attack(const std::string& target) {
-	if (this->hp == 0) {
-		std::cout << "❌ ScavTrap " << this->name << " can't attack, "
-		          << this->hp << " HP left (he is dead 🙏⚰️ )."
-		          << std::endl;
+	if (hp == 0) {
+		std::cout << "❌ ScavTrap " << name << " can't attack, " << hp
+		          << " HP left (he is dead 🙏⚰️ )." << std::endl;
 		return;
 	}
 
-	if (this->ep > 0) {
-		this->ep--;
-		std::cout << "⚔️  ScavTrap " << this->name << " attacks " << target
-		          << ", causing " << this->ad << " points of damage!"
-		          << std::endl;
+	if (ep > 0) {
+		ep--;
+		std::cout << "⚔️ ScavTrap " << name << " attacks " << target
+		          << ", causing " << ad << " points of damage!" << std::endl;
 	} else
-		std::cout << "❌ ScavTrap " << this->name << " can't attack, "
-		          << this->ep << " EP left." << std::endl;
+		std::cout << "❌ ScavTrap " << name << " can't attack, " << ep
+		          << " EP left." << std::endl;
 }
 
 void ScavTrap::guardGate() const {
-	if (this->hp > 0)
-		std::cout << "🛡️  ScavTrap " << this->name
-		          << " is guarding the gate!" << std::endl;
-	else
-		std::cout << "❌ ScavTrap " << this->name << " can't guard the gate, "
-		          << this->hp << " HP left (he is dead 🙏⚰️ )."
+	if (hp > 0)
+		std::cout << "🛡️ ScavTrap " << name << " is guarding the gate!"
 		          << std::endl;
+	else
+		std::cout << "❌ ScavTrap " << name << " can't guard the gate, " << hp
+		          << " HP left (he is dead 🙏⚰️ )." << std::endl;
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << "💣 ScavTrap " << this->name << " destroyed !" << std::endl;
+	std::cout << "💣 ScavTrap " << name << " destroyed !" << std::endl;
 }
