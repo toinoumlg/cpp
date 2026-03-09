@@ -7,8 +7,8 @@ SOURCE_DIR = source/
 OBJECTS_DIR = build/
 INCLUDE_DIR = include/
 
-CPP_FILES = main Animal Cat Dog WrongAnimal WrongCat
-HPP_FILES = Animal Cat Dog WrongAnimal WrongCat
+CPP_FILES = main Animal Cat Dog WrongAnimal WrongCat Brain
+HPP_FILES = Animal Cat Dog WrongAnimal WrongCat Brain
 
 SOURCES = $(addprefix $(SOURCE_DIR), $(addsuffix .cpp, $(CPP_FILES)))
 OBJECTS = $(patsubst $(SOURCE_DIR)%.cpp,$(OBJECTS_DIR)%.o,$(SOURCES))
