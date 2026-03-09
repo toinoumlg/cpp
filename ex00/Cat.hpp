@@ -10,20 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_CLASS_H
-#define DOG_CLASS_H
+#ifndef CAT_CLASS_H
+#define CAT_CLASS_H
 
 #include "Animal.hpp"
 
-class Dog : Animal {
+class Cat : public Animal {
    public:
-	Dog();
-	~Dog();
+	Cat();
+	Cat(const std::string type);
+	Cat(const Cat &other);
+	~Cat();
+
+	Cat &operator=(const Cat &other);
 
 	void makeSound() const;
-
-   protected:
-	std::string type;
 };
 
 #endif

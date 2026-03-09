@@ -10,18 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Cat.hpp"
+
 #include <iostream>
 
-#include "Dog.hpp"
-
-Dog::Dog() {
-	std::cout << "Dog constructed" << std::endl;
+Cat::Cat() : Animal() {
+	std::cout << "Cat constructed" << std::endl;
+	type = "Cat";
 }
 
-void Dog::makeSound() const {
-	std::cout << "woof woof 🐶" << std::endl;
+Cat::Cat(const std::string type) : Animal() {
+	std::cout << "Cat parameterized constructor" << std::endl;
+	this->type = type;
 }
 
-Dog::~Dog() {
-	std::cout << "Dog destucted" << std::endl;
+Cat::Cat(const Cat& other) : Animal(other) {
+	std::cout << "Cat copy construtor called" << std::endl;
+}
+
+Cat& Cat::operator=(const Cat& other) {
+	std::cout << "Cat assignement operator called";
+	if (this == &other)
+		return *this;
+	type = other.type;
+	return *this;
+}
+
+void Cat::makeSound() const {
+	std::cout << "meow meow 🐱" << std::endl;
+}
+
+Cat::~Cat() {
+	std::cout << "Cat destucted" << std::endl;
 }

@@ -1,9 +1,9 @@
-NAME = claptrap
-CC = g++
+NAME = polymorph
+CC = c++
 CPPFLAGS = -Werror -Wextra -Wall -g3 -std=c++98
 
-CPP_FILES = main 
-HPP_FILES = 
+CPP_FILES = main Animal Cat Dog WrongAnimal WrongCat
+HPP_FILES = Animal Cat Dog WrongAnimal WrongCat
 SOURCES = $(addsuffix .cpp, $(CPP_FILES))
 OBJECTS = $(SOURCES:.cpp=.o)
 HEADERS = $(addsuffix .hpp, $(HPP_FILES))
@@ -11,7 +11,7 @@ HEADERS = $(addsuffix .hpp, $(HPP_FILES))
 all: $(NAME)
 
 $(NAME): $(OBJECTS) $(HEADERS)
-	$(CC) $(CPPFLAGS) $^ -o $@
+	$(CC) $(CPPFLAGS) $(OBJECTS) -o $@
 
 %.o: %.cpp $(HEADERS)
 	$(CC) $(CPPFLAGS) -c $< -o $@

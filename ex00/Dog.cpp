@@ -14,23 +14,24 @@
 
 #include <iostream>
 
-Dog::Dog() {
+Dog::Dog() : Animal() {
 	std::cout << "Dog constructed" << std::endl;
+	type = "Dog";
 }
 
-Dog::Dog(const std::string type) : type(type) {
+Dog::Dog(const std::string type) : Animal(type) {
 	std::cout << "Dog parameterized constructor" << std::endl;
 }
 
-Dog::Dog(const Dog& other) : type(type) {
+Dog::Dog(const Dog& other) : Animal(other) {
 	std::cout << "Dog copy construtor called" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other) {
-	if (this != &other) {
-		type = other.type;
-	}
-	std::cout << "Dog assignment operator called";
+	std::cout << "Dog assignement operator called";
+	if (this == &other)
+		return *this;
+	type = other.type;
 	return *this;
 }
 
@@ -39,5 +40,5 @@ void Dog::makeSound() const {
 }
 
 Dog::~Dog() {
-	std::cout << "Dog destucted" << std::endl;
+	std::cout << "Dog destuctred" << std::endl;
 }
