@@ -40,6 +40,18 @@ Cat& Cat::operator=(const Cat& other) {
 	return *this;
 }
 
+void Cat::setIdea(std::string idea) {
+	brain->setIdea(idea);
+}
+
+void Cat::setIdea(std::string idea, int i) {
+	brain->setIdea(idea, i);
+}
+
+std::string Cat::getIdea(int i) {
+	return brain->getIdea(i);
+}
+
 void Cat::makeSound() const {
 	std::cout << "meow meow 🐱" << std::endl;
 }

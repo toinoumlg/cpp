@@ -1,4 +1,4 @@
-NAME = polymorph
+NAME = braining
 
 CXX = c++
 CXXFLAGS = -Werror -Wextra -Wall -g3 -std=c++98

@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 19:24:57 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/09 19:26:13 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 10:39:03 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,47 @@
 
 Brain::Brain() {
 	std::cout << "Brain constructed" << std::endl;
+	for (int i = 0; i < 100; i++) {
+		ideas[i] = "default";
+	}
+}
+
+Brain::Brain(const std::string &idea) {
+	for (int i = 0; i < 100; i++) {
+		ideas[i] = idea;
+	}
+	std::cout << "Brain parameterized constructor" << std::endl;
+}
+
+Brain::Brain(const Brain &other) {
+	std::cout << "Brain copy constructor" << std::endl;
+	for (int i = 0; i < 100; i++) {
+		ideas[i] = other.ideas[i];
+	}
+}
+
+Brain &Brain::operator=(const Brain &other) {
+	std::cout << "Brain assignement operator" << std::endl;
+	if (this == &other)
+		return *this;
+	for (int i = 0; i < 100; i++) {
+		ideas[i] = other.ideas[i];
+	}
+	return *this;
+}
+
+void Brain::setIdea(std::string idea) {
+	for (int i = 0; i < 100; i++) {
+		ideas[i] = idea;
+	}
+}
+
+void Brain::setIdea(std::string idea, int i) {
+	ideas[i] = idea;
+}
+
+std::string Brain::getIdea(int i) {
+	return ideas[i];
 }
 
 Brain::~Brain() {
