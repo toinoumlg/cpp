@@ -20,9 +20,8 @@ Cat::Cat() : AAnimal() {
 	_brain = new Brain();
 }
 
-Cat::Cat(const std::string type) : AAnimal() {
+Cat::Cat(const std::string type) : AAnimal(type) {
 	std::cout << "Cat parameterized constructor" << std::endl;
-	this->type = type;
 	_brain = new Brain();
 }
 

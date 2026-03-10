@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/10 16:24:47 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:44:44 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ void wrongBrain() {
 int main(void) {
 	testArray();
 	testCopy();
-	wrongCat();
-	wrongBrain();
+	// wrongCat();
+	// wrongBrain();
 }

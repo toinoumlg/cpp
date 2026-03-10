@@ -20,15 +20,15 @@ Dog::Dog() : Animal() {
 }
 
 Dog::Dog(const std::string type) : Animal(type) {
-	std::cout << "Dog parameterized constructor" << std::endl;
+	std::cout << "Dog[" + type + "] parameterized constructor" << std::endl;
 }
 
 Dog::Dog(const Dog& other) : Animal(other) {
-	std::cout << "Dog copy construtor called" << std::endl;
+	std::cout << "Dog[" + type + "] copy construtor called" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other) {
-	std::cout << "Dog assignement operator called";
+	std::cout << "Dog[" + type + "] assignement operator called";
 	if (this == &other)
 		return *this;
 	type = other.type;
@@ -36,9 +36,9 @@ Dog& Dog::operator=(const Dog& other) {
 }
 
 void Dog::makeSound() const {
-	std::cout << "woof woof 🐶" << std::endl;
+	std::cout << "Dog[" + type + "] woof woof 🐶" << std::endl;
 }
 
 Dog::~Dog() {
-	std::cout << "Dog destuctred" << std::endl;
+	std::cout << "Dog[" + type + "] destuctred" << std::endl;
 }

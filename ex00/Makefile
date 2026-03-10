@@ -1,7 +1,7 @@
 NAME = polymorph
 
 CXX = c++
-CXXFLAGS = -Werror -Wextra -Wall -g3 -std=c++98
+CXXFLAGS = -Werror -Wextra -Wall -std=c++98
 
 SOURCE_DIR = source/
 OBJECTS_DIR = build/

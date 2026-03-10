@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 14:19:51 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/10 13:18:28 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:53:24 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,16 @@ Animal::Animal() : type("AnimalDefault") {
 }
 
 Animal::Animal(const std::string type) : type(type) {
-	std::cout << "Animal parameterized constructor" << std::endl;
+	std::cout << "Animal[" + type + "] parameterized constructor" << std::endl;
 }
 
 Animal::Animal(const Animal &other) : type(other.type) {
-	std::cout << "Animal copy constructor" << std::endl;
+	std::cout << "Animal[" + type + "] copy constructor" << std::endl;
 }
 
 Animal &Animal::operator=(const Animal &other) {
-	std::cout << "Animal assignement operator called" << std::endl;
+	std::cout << "Animal[" + type + "] assignement operator called"
+	          << std::endl;
 	if (this == &other)
 		return *this;
 	type = other.type;
@@ -39,9 +40,9 @@ const std::string Animal::getType() const {
 }
 
 void Animal::makeSound() const {
-	std::cout << "Animal made a sound" << std::endl;
+	std::cout << "Animal[" + type + "] made a sound" << std::endl;
 }
 
 Animal::~Animal() {
-	std::cout << "Animal destructed" << std::endl;
+	std::cout << "Animal[" + type + "] destructed" << std::endl;
 }

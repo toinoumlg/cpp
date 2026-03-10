@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 18:27:15 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/10 13:18:39 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:51:43 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ WrongAnimal::WrongAnimal() : type("WrongAnimalDefault") {
 }
 
 WrongAnimal::WrongAnimal(const std::string type) : type(type) {
-	std::cout << "WrongAnimal parameterized constructor" << std::endl;
+	std::cout << "WrongAnimal[" + type + "] parameterized constructor" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &other) : type(other.type) {
-	std::cout << "WrongAnimal copy constructor" << std::endl;
+	std::cout << "WrongAnimal[" + type + "] copy constructor" << std::endl;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other) {
-	std::cout << "Animal assignement operator called" << std::endl;
+	std::cout << "WrongAnimal[" + type + "] assignement operator called" << std::endl;
 	if (this == &other)
 		return *this;
 	type = other.type;
@@ -37,9 +37,9 @@ const std::string WrongAnimal::getType() const {
 }
 
 void WrongAnimal::makeSound() const {
-	std::cout << "WrongAnimal made a sound" << std::endl;
+	std::cout << "WrongAnimal[" + type + "] made a sound" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal() {
-	std::cout << "WrongAnimal destructed" << std::endl;
+	std::cout << "WrongAnimal[" + type + "] destructed" << std::endl;
 }

@@ -20,16 +20,16 @@ Cat::Cat() : Animal() {
 }
 
 Cat::Cat(const std::string type) : Animal() {
-	std::cout << "Cat parameterized constructor" << std::endl;
+	std::cout << "Cat[" + type + "] parameterized constructor" << std::endl;
 	this->type = type;
 }
 
 Cat::Cat(const Cat& other) : Animal(other) {
-	std::cout << "Cat copy construtor called" << std::endl;
+	std::cout << "Cat[" + type + "] copy construtor called" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other) {
-	std::cout << "Cat assignement operator called";
+	std::cout << "Cat[" + type + "] assignement operator called";
 	if (this == &other)
 		return *this;
 	type = other.type;
@@ -37,9 +37,9 @@ Cat& Cat::operator=(const Cat& other) {
 }
 
 void Cat::makeSound() const {
-	std::cout << "meow meow 🐱" << std::endl;
+	std::cout << "Cat[" + type + "] meow meow 🐱" << std::endl;
 }
 
 Cat::~Cat() {
-	std::cout << "Cat destucted" << std::endl;
+	std::cout << "Cat[" + type + "] destucted" << std::endl;
 }

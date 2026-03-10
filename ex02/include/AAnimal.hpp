@@ -17,9 +17,6 @@
 
 class AAnimal {
    public:
-	AAnimal();
-	AAnimal(const std::string type);
-	AAnimal(const AAnimal &other);
 	virtual ~AAnimal();
 
 	AAnimal &operator=(const AAnimal &other);
@@ -28,6 +25,9 @@ class AAnimal {
 	virtual void makeSound() const = 0;
 
    protected:
+	AAnimal();
+	AAnimal(const AAnimal &other);
+	AAnimal(const std::string type);
 	std::string type;
 };
 

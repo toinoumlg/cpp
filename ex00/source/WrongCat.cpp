@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 18:35:43 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/10 13:18:42 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:50:52 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ WrongCat::WrongCat() : WrongAnimal() {
 }
 
 WrongCat::WrongCat(const std::string type) : WrongAnimal() {
-	std::cout << "WrongCat parameterized constructor" << std::endl;
+	std::cout << "WrongCat[" + type + "] parameterized constructor" << std::endl;
 	this->type = type;
 }
 
 WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
-	std::cout << "WrongCat copy construtor called" << std::endl;
+	std::cout << "WrongCat[" + type + "] copy construtor called" << std::endl;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& other) {
-	std::cout << "WrongCat assignement operator called";
+	std::cout << "WrongCat[" + type + "] assignement operator called";
 	if (this == &other)
 		return *this;
 	type = other.type;
@@ -35,9 +35,9 @@ WrongCat& WrongCat::operator=(const WrongCat& other) {
 }
 
 void WrongCat::makeSound() const {
-	std::cout << "WRONG meow meow 🐱" << std::endl;
+	std::cout << "WrongCat[" + type + "] meow meow 🐱" << std::endl;
 }
 
 WrongCat::~WrongCat() {
-	std::cout << "Cat destucted" << std::endl;
+	std::cout << "WrongCat[" + type + "] destucted" << std::endl;
 }
