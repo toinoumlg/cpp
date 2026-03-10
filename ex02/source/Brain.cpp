@@ -6,11 +6,11 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 19:24:57 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/10 11:32:53 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 13:17:16 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "../include/Brain.hpp"
 
 Brain::Brain() {
 	std::cout << "Brain constructed" << std::endl;

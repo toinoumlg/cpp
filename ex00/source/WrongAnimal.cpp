@@ -6,11 +6,11 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 18:27:15 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/09 18:40:55 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 13:18:39 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "../include/WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal() : type("WrongAnimalDefault") {
 	std::cout << "WrongAnimal constructor" << std::endl;

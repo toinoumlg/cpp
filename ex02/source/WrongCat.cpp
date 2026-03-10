@@ -6,11 +6,11 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 18:35:43 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/09 18:46:35 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 13:17:36 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "../include/WrongCat.hpp"
 
 WrongCat::WrongCat() : WrongAnimal() {
 	std::cout << "WrongCat constructed" << std::endl;

@@ -6,11 +6,11 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 14:19:51 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/09 18:45:36 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 13:18:01 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../include/Animal.hpp"
 
 #include <iostream>
 
