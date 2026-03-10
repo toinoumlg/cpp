@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/10 11:30:00 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 11:47:12 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-void test_array() {
+void testArray() {
 	Animal *array[10];
 	for (int i = 0; i < 10; i++) {
 		if (i % 2)
@@ -33,7 +33,7 @@ void test_array() {
 	}
 }
 
-void test_copy() {
+void testCopy() {
 	Cat first("little cat");
 	Cat second;
 
@@ -60,6 +60,6 @@ void test_copy() {
 }
 
 int main(void) {
-	test_array();
-	test_copy();
+	testArray();
+	testCopy();
 }

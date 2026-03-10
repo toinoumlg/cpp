@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 19:24:57 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/10 11:23:46 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 11:32:53 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ Brain::Brain() {
 }
 
 Brain::Brain(const std::string &idea) {
+	std::cout << "Brain parameterized constructor" << std::endl;
 	for (int i = 0; i < 100; i++) {
 		ideas[i] = idea;
 	}
-	std::cout << "Brain parameterized constructor" << std::endl;
 }
 
 Brain::Brain(const Brain &other) {
