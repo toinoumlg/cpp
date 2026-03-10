@@ -17,39 +17,41 @@
 Cat::Cat() : Animal() {
 	std::cout << "Cat constructed" << std::endl;
 	type = "Cat";
-	brain = new Brain();
+	_brain = new Brain();
 }
 
 Cat::Cat(const std::string type) : Animal() {
 	std::cout << "Cat parameterized constructor" << std::endl;
 	this->type = type;
-	brain = new Brain();
+	_brain = new Brain();
 }
 
 Cat::Cat(const Cat& other) : Animal(other) {
 	std::cout << "Cat copy construtor called" << std::endl;
-	brain = new Brain();
+	_brain = new Brain(*other._brain);
 }
 
 Cat& Cat::operator=(const Cat& other) {
-	std::cout << "Cat assignement operator called";
+	std::cout << "Cat assignement operator called" << std::endl;
 	if (this == &other)
 		return *this;
 	type = other.type;
-	brain = other.brain;
+	if (_brain)
+		delete _brain;
+	_brain = new Brain(*other._brain);
 	return *this;
 }
 
-void Cat::setIdea(std::string idea) {
-	brain->setIdea(idea);
+void Cat::setBrainIdea(std::string idea) {
+	_brain->setIdea(idea);
 }
 
-void Cat::setIdea(std::string idea, int i) {
-	brain->setIdea(idea, i);
+void Cat::setBrainIdea(std::string idea, int i) {
+	_brain->setIdea(idea, i);
 }
 
-std::string Cat::getIdea(int i) {
-	return brain->getIdea(i);
+std::string Cat::getBrainIdea(int i) {
+	return _brain->getIdea(i);
 }
 
 void Cat::makeSound() const {
@@ -58,5 +60,5 @@ void Cat::makeSound() const {
 
 Cat::~Cat() {
 	std::cout << "Cat destucted" << std::endl;
-	delete brain;
+	delete _brain;
 }

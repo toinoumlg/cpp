@@ -17,17 +17,17 @@
 Dog::Dog() : Animal() {
 	std::cout << "Dog constructed" << std::endl;
 	type = "Dog";
-	brain = new Brain();
+	_brain = new Brain();
 }
 
 Dog::Dog(const std::string type) : Animal(type) {
 	std::cout << "Dog parameterized constructor" << std::endl;
-	brain = new Brain();
+	_brain = new Brain();
 }
 
 Dog::Dog(const Dog& other) : Animal(other) {
 	std::cout << "Dog copy construtor called" << std::endl;
-	brain = new Brain();
+	_brain = new Brain(*other._brain);
 }
 
 Dog& Dog::operator=(const Dog& other) {
@@ -35,29 +35,29 @@ Dog& Dog::operator=(const Dog& other) {
 	if (this == &other)
 		return *this;
 	type = other.type;
-	brain = other.brain;
+	if (_brain)
+		delete _brain;
+	_brain = new Brain(*other._brain);
 	return *this;
 }
 
-void Dog::setIdea(std::string idea) {
-	brain->setIdea(idea);
+void Dog::setBrainIdea(std::string idea) {
+	_brain->setIdea(idea);
 }
 
-void Dog::setIdea(std::string idea, int i) {
-	brain->setIdea(idea, i);
+void Dog::setBrainIdea(std::string idea, int i) {
+	_brain->setIdea(idea, i);
 }
 
-std::string Dog::getIdea(int i) const {
-	return brain->getIdea(i);
+std::string Dog::getBrainIdea(int i) const {
+	return _brain->getIdea(i);
 }
 
 void Dog::makeSound() const {
 	std::cout << "woof woof 🐶" << std::endl;
-	for (int i = 0; i < 3; i++)
-		std::cout << "ideas :" + getIdea(i) << std::endl;
 }
 
 Dog::~Dog() {
 	std::cout << "Dog destuctred" << std::endl;
-	delete brain;
+	delete _brain;
 }

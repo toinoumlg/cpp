@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 19:27:51 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/10 10:38:53 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 11:18:04 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ class Cat : public Animal {
 
 	Cat &operator=(const Cat &other);
 
-	void setIdea(std::string idea);
-	void setIdea(std::string idea, int i);
-	std::string getIdea(int i);
+	void setBrainIdea(std::string idea);
+	void setBrainIdea(std::string idea, int i);
+	std::string getBrainIdea(int i);
 
 	void makeSound() const;
 
    private:
-	Brain *brain;
+	Brain *_brain;
 };
 
 #endif

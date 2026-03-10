@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/10 10:40:20 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 11:30:00 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-int main(void) {
+void test_array() {
 	Animal *array[10];
 	for (int i = 0; i < 10; i++) {
 		if (i % 2)
@@ -31,4 +31,35 @@ int main(void) {
 	for (int i = 0; i < 10; i++) {
 		delete array[i];
 	}
+}
+
+void test_copy() {
+	Cat first("little cat");
+	Cat second;
+
+	std::cout << "first idea[5]: " << first.getBrainIdea(5) << std::endl;
+	first.setBrainIdea("ILLUMINATION", 5);
+	std::cout << "first idea[5]: " << first.getBrainIdea(5) << std::endl
+	          << std::endl;
+
+	std::cout << "second idea[5]: " << second.getBrainIdea(5) << std::endl;
+	second = first;
+	std::cout << "second idea[5]: " << second.getBrainIdea(5) << std::endl
+	          << std::endl;
+
+	first.setBrainIdea("no idea");
+	std::cout << "first idea[65]: " << first.getBrainIdea(65) << std::endl;
+	std::cout << "second idea[65]: " << second.getBrainIdea(65) << std::endl
+	          << std::endl;
+
+	Cat third(first);
+
+	std::cout << "first idea[65]: " << first.getBrainIdea(65) << std::endl;
+	std::cout << "third idea[65]: " << third.getBrainIdea(65) << std::endl
+	          << std::endl;
+}
+
+int main(void) {
+	test_array();
+	test_copy();
 }
