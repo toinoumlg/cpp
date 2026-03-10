@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/03 14:19:51 by amalangu          #+#    #+#             */
+/*   Updated: 2026/03/03 14:33:09 by amalangu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef DOG_CLASS_H
+#define DOG_CLASS_H
+
+#include "AAnimal.hpp"
+#include "Brain.hpp"
+
+class Dog : public AAnimal {
+   public:
+	Dog();
+	Dog(const std::string type);
+	Dog(const Dog& other);
+	~Dog();
+
+	Dog& operator=(const Dog& other);
+
+	void makeSound() const;
+	void setBrainIdea(std::string idea);
+	void setBrainIdea(std::string idea, int i);
+	std::string getBrainIdea(int i) const;
+
+   private:
+	Brain* _brain;
+};
+
+#endif
