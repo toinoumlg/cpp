@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 19:13:15 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/10 10:39:08 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:13:53 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Brain {
 
 	void setIdea(std::string idea);
 	void setIdea(std::string idea, int i);
-	std::string getIdea(int i);
+	std::string getIdea(int i) const;
 
    private:
 	std::string ideas[100];

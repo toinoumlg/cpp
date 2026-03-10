@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 08:51:47 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/10 13:15:18 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:24:47 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "../include/WrongCat.hpp"
 
 void testArray() {
-	Animal *array[10];
+	Animal* array[10];
 	for (int i = 0; i < 10; i++) {
 		if (i % 2)
 			array[i] = new Cat();
@@ -59,7 +59,27 @@ void testCopy() {
 	          << std::endl;
 }
 
+void wrongCat() {
+	WrongAnimal* wrong[5];
+	for (int i = 0; i < 5; i++) {
+		wrong[i] = new WrongCat();
+		wrong[i]->makeSound();
+	}
+	for (int i = 0; i < 5; i++) {
+		delete wrong[i];
+	}
+}
+
+void wrongBrain() {
+	WrongCat first("little");
+	WrongCat second;
+	second = first;
+	std::cout << second.getBrainIdea(2) << std::endl;
+}
+
 int main(void) {
 	testArray();
 	testCopy();
+	wrongCat();
+	wrongBrain();
 }

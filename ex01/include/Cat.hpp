@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 19:27:51 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/10 12:04:00 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:13:58 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Cat : public Animal {
 
 	void setBrainIdea(std::string idea);
 	void setBrainIdea(std::string idea, int i);
-	std::string getBrainIdea(int i);
+	std::string getBrainIdea(int i) const;
 
 	void makeSound() const;
 

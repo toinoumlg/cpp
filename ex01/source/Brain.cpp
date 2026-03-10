@@ -6,7 +6,7 @@
 /*   By: amalangu <amalangu@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 19:24:57 by amalangu          #+#    #+#             */
-/*   Updated: 2026/03/10 13:17:59 by amalangu         ###   ########.fr       */
+/*   Updated: 2026/03/10 16:15:08 by amalangu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void Brain::setIdea(std::string idea, int i) {
 		ideas[i] = idea;
 }
 
-std::string Brain::getIdea(int i) {
+std::string Brain::getIdea(int i) const {
 	if (i >= 0 && i < 100)
 		return ideas[i];
 	else

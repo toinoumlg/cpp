@@ -50,7 +50,7 @@ void Cat::setBrainIdea(std::string idea, int i) {
 	_brain->setIdea(idea, i);
 }
 
-std::string Cat::getBrainIdea(int i) {
+std::string Cat::getBrainIdea(int i) const {
 	return _brain->getIdea(i);
 }
 
