@@ -1,4 +1,5 @@
 {
 	"debbuger.cwd": "ex00", // folder when makefile is as well as binnary
-	"debbuger.bin": "polymorph" // binnary name in makefile
+	"debbuger.bin": "polymorph",
+	"makefile.makefilePath": "/home/toinou/Documents/cpp/ex00/Makefile" // binnary name in makefile
 }
