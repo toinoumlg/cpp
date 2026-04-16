@@ -1,8 +1,9 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#pragma once
 
 #include <string>
 #include <iostream>
+
+class AForm;
 
 class Bureaucrat {
 public:
@@ -33,6 +34,11 @@ public:
 
     void decrementGrade(int amount);
 
+    // Form stuff
+
+    void signForm(AForm &form) const;
+
+    void executeForm(const AForm &form) const;
 
     // Getters
     std::string getName() const;
@@ -40,9 +46,10 @@ public:
     int getGrade() const;
 
     // Errors
-    static std::out_of_range GradeTooHighException();
+    std::out_of_range GradeTooHighException() const;
 
-    static std::out_of_range GradeTooLowException();
+    std::out_of_range GradeTooLowException() const;
+
 
 private:
     const std::string &_name;
@@ -51,4 +58,3 @@ private:
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &bureaucrat);
 
-#endif

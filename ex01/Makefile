@@ -1,4 +1,4 @@
-NAME = Bureaucrating
+NAME = Signingin
 
 CXX = c++
 CXXFLAGS = -Werror -Wextra -Wall -std=c++98
@@ -7,8 +7,8 @@ SOURCE_DIR = source/
 OBJECTS_DIR = build/
 INCLUDE_DIR = include/
 
-CPP_FILES = main Bureaucrat
-HPP_FILES = Bureaucrat
+CPP_FILES = main Bureaucrat Form
+HPP_FILES = Bureaucrat Form
 
 SOURCES = $(addprefix $(SOURCE_DIR), $(addsuffix .cpp, $(CPP_FILES)))
 OBJECTS = $(patsubst $(SOURCE_DIR)%.cpp,$(OBJECTS_DIR)%.o,$(SOURCES))
