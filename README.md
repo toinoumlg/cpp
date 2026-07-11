@@ -40,9 +40,3 @@ The C++ module branches go from `CPP00` to `CPP09`.
 - Check out the branch that matches the topic you want to study.
 - Use `DXX` branches for tutorial-based exercises from 42 school.
 - Use `CPPXX` branches for module-based C++ exercises and projects.
-
-## Notes
-
-This README is meant to give a quick overview of the repository structure. I can expand it later with build instructions, project links, or branch details if needed.
-
-
