@@ -7,8 +7,8 @@ SOURCE_DIR = source/
 OBJECTS_DIR = build/
 INCLUDE_DIR = include/
 
-CPP_FILES = main ScalarConverter FromType Finder Printer
-HPP_FILES = ScalarConverter
+CPP_FILES = main
+HPP_FILES = Templates
 
 SOURCES = $(addprefix $(SOURCE_DIR), $(addsuffix .cpp, $(CPP_FILES)))
 OBJECTS = $(patsubst $(SOURCE_DIR)%.cpp,$(OBJECTS_DIR)%.o,$(SOURCES))
