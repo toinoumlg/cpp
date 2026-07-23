@@ -1,7 +1,7 @@
 NAME = Serialize
 
 CXX = c++
-CXXFLAGS = -Werror -Wextra -Wall -std=c++98 -std=gnu++11
+CXXFLAGS = -Werror -Wextra -Wall -std=c++98
 
 SOURCE_DIR = source/
 OBJECTS_DIR = build/
