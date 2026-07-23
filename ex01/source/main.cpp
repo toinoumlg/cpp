@@ -1,28 +1,43 @@
-#include "Form.hpp"
-#include "Bureaucrat.hpp"
+#include "Serializer.hpp"
 
-void test_forms(Bureaucrat &bureaucrat) {
-    Form test("First", 151, 120);
-    try {
-        bureaucrat.signForm(test);
-        std::cout << bureaucrat << " signed " << test;
-    } catch (std::exception &e) {
-        std::cerr << bureaucrat << " couldn't sign " << test << " because "
-            << e.what()<< std::endl;
-    }
+void isequal(Data* ptr1, Data* ptr2) {
+	if (ptr1 != ptr2)
+		std::cout << "input and result arent equal" << std::endl;
+	else
+		std::cout << "input and result are equal" << std::endl;
+}
 
+void printdata(Data* ptr) {
+	std::cout << "age: " << ptr->age << std::endl
+	          << "name: " << ptr->name << std::endl
+	          << "city: " << ptr->city << std::endl
+	          << std::endl;
 }
 
 int main() {
-    try {
-        Bureaucrat golem("Golem", 150);
-        Bureaucrat pro("Pro", 130);
-        std::cout << golem++ << std::endl;
-        std::cout << golem << std::endl;
-        std::cout << pro << std::endl;
-        test_forms(pro);
-    } catch (std::exception &e) {
-        std::cerr << e.what() << std::endl;
-        return 1;
-    }
+	Data* input = new Data;
+	Data* result = NULL;
+	uintptr_t raw = 0;
+
+	input->age = 27;
+	input->name = "Antoine";
+	input->city = "Lyon";
+
+	std::cout << "data address: " << input << std::endl
+	          << "deserialize address: " << result << std::endl
+	          << "uintptr_t value: " << raw << std::endl
+	          << std::endl;
+
+	printdata(input);
+	isequal(input, result);
+
+	raw = Serializer::serialize(input);
+
+	std::cout << "uintptr_t value after serialize: " << raw << std::endl;
+
+	result = Serializer::deserialize(raw);
+
+	isequal(input, result);
+	printdata(result);
+	delete input;
 }

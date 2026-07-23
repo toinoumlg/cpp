@@ -1,15 +1,7 @@
-#include "Bureaucrat.hpp"
+#include "ScalarConverter.hpp"
 
-int main() {
-    try {
-        Bureaucrat golem("Golem", 150);
-        Bureaucrat pro("Pro", 1);
-        std::cout << golem++ << std::endl;
-        std::cout << golem << std::endl;
-        pro += 50;
-        std::cout << pro << std::endl;
-    } catch (std::exception &e) {
-        std::cerr << e.what() << std::endl;
-        return 1;
-    }
+int main(int argc, char *argv[]) {
+	if (argc != 2)
+		return 1;
+	return ScalarConverter::convert(argv[1]);
 }
