@@ -1,28 +1,46 @@
-#include "Form.hpp"
 #include "Bureaucrat.hpp"
-
-void test_forms(Bureaucrat &bureaucrat) {
-    Form test("First", 151, 120);
-    try {
-        bureaucrat.signForm(test);
-        std::cout << bureaucrat << " signed " << test;
-    } catch (std::exception &e) {
-        std::cerr << bureaucrat << " couldn't sign " << test << " because "
-            << e.what()<< std::endl;
-    }
-
-}
+#include "Form.hpp"
 
 int main() {
-    try {
-        Bureaucrat golem("Golem", 150);
-        Bureaucrat pro("Pro", 130);
-        std::cout << golem++ << std::endl;
-        std::cout << golem << std::endl;
-        std::cout << pro << std::endl;
-        test_forms(pro);
-    } catch (std::exception &e) {
-        std::cerr << e.what() << std::endl;
-        return 1;
-    }
+	try {
+		Form invalid("invalid", 155, 120);
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl << "-------------" << std::endl << std::endl;
+	try {
+		Form invalid("invalid", -10, 120);
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl << "-------------" << std::endl << std::endl;
+	try {
+		Form invalid("invalid", 100, 155);
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl << "-------------" << std::endl << std::endl;
+	try {
+		Form invalid("invalid", 100, -15);
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl << "-------------" << std::endl << std::endl;
+	try {
+		Form valid("valid", 130, 130);
+		Form equal("equal", 150, 150);
+		std::cout << valid << std::endl;
+		Bureaucrat bureaucrat("Random", 150);
+		bureaucrat.signForm(valid);
+		bureaucrat.signForm(equal);
+		std::cout << valid << std::endl;
+		std::cout << equal << std::endl;
+		bureaucrat = 1;
+		bureaucrat.signForm(valid);
+		std::cout << valid << std::endl;
+		bureaucrat -= -1;
+		bureaucrat -= 2;
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 }

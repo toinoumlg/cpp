@@ -8,7 +8,7 @@ OBJECTS_DIR = build/
 INCLUDE_DIR = include/
 
 CPP_FILES = main
-CPP_CLASS = Bureaucrat AForm miniaudio \
+CPP_CLASS = Bureaucrat AForm \
 	ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm
 
 SOURCES = $(addprefix $(SOURCE_DIR), $(addsuffix .cpp, $(CPP_FILES))) $(addprefix $(SOURCE_DIR), $(addsuffix .cpp, $(CPP_CLASS)))

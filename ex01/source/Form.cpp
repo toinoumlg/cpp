@@ -1,51 +1,95 @@
 #include "Form.hpp"
+
 #include "Bureaucrat.hpp"
 
-Form::Form(const std::string &name, const int sign,
-           const int exec) : _name(name), _signed(false), _req_sign(sign),
-                             _req_exec(exec) {
-    if (_req_sign < 1 || _req_exec < 1)
-        throw GradeTooHighException();
-    if (_req_sign > 150 || _req_exec > 150)
-        throw GradeTooLowException();
+Form::Form()
+    : _name("DefaultForm"), _signed(false), _req_sign(150), _req_exec(150) {}
+
+Form::Form(const std::string &name, const int sign, const int exec)
+    : _name(name), _signed(false), _req_sign(sign), _req_exec(exec) {
+	if (_req_sign < 1 || _req_exec < 1)
+		throw GradeTooHighException(name, _req_sign, _req_exec);
+	if (_req_sign > 150 || _req_exec > 150)
+		throw GradeTooLowException(name, _req_sign, _req_exec);
+}
+
+Form::Form(const Form &other)
+    : _name(other.getName()),
+      _signed(other.getSigned()),
+      _req_sign(other.getReqSign()),
+      _req_exec(other.getReqExec()) {}
+
+Form &Form::operator=(const Form &other) {
+	if (this == &other)
+		return *this;
+	_signed = other.getSigned();
+	return *this;
 }
 
 void Form::beSigned(const Bureaucrat &bureaucrat) {
-    if (bureaucrat.getGrade() <= _req_sign)
-        _signed = true;
-    else
-        throw GradeTooLowException();
+	if (bureaucrat.getGrade() <= _req_sign)
+		_signed = true;
+	else
+		throw GradeTooLowException("bureaucrat grade too low");
 }
 
 bool Form::getSigned() const {
-    return _signed;
+	return _signed;
 }
 
-std::string Form::getName() const {
-    return _name;
+const std::string &Form::getName() const {
+	return _name;
 }
 
 int Form::getReqSign() const {
-    return _req_sign;
+	return _req_sign;
 }
 
 int Form::getReqExec() const {
-    return _req_exec;
+	return _req_exec;
 }
 
-std::out_of_range Form::GradeTooHighException() const {
-    return std::out_of_range(_name + ", form grade is too high");
+static std::string BuildMessage(const std::string &name, const int req_sign,
+                                const int req_exec, const std::string &reason) {
+	std::stringstream stream;
+	stream << "Form " << name << " required grade are out of range: " << reason
+	       << " {" << req_sign << ';' << req_exec << '}';
+	return stream.str();
 }
 
-std::out_of_range Form::GradeTooLowException() const {
-    return std::out_of_range(_name + ", form grade is too low");
+Form::GradeTooHighException::GradeTooHighException(const std::string &name,
+                                                   const int req_sign,
+                                                   const int req_exec) {
+	_message = BuildMessage(name, req_sign, req_exec, "too high");
 }
 
-Form::~Form() {
+const char *Form::GradeTooHighException::what() const throw() {
+	return _message.c_str();
 }
+
+Form::GradeTooHighException::~GradeTooHighException() throw() {}
+
+Form::GradeTooLowException::GradeTooLowException(const std::string &name,
+                                                 const int req_sign,
+                                                 const int req_exec) {
+	_message = BuildMessage(name, req_sign, req_exec, "too low");
+}
+
+Form::GradeTooLowException::GradeTooLowException(const char *msg) {
+	_message = msg;
+}
+
+const char *Form::GradeTooLowException::what() const throw() {
+	return _message.c_str();
+}
+
+Form::GradeTooLowException::~GradeTooLowException() throw() {}
+
+Form::~Form() {}
 
 std::ostream &operator<<(std::ostream &output, Form const &form) {
-    output << form.getName() << "{" << form.getReqSign() << ";" << form.
-            getReqExec() << "}";
-    return output;
+	output << "Form " << form.getName() << "{" << form.getReqSign() << ";"
+	       << form.getReqExec() << "} is " << (form.getSigned() ? "" : "not ")
+	       << "signed";
+	return output;
 }

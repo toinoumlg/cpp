@@ -1,10 +1,13 @@
 #pragma once
 #include "AForm.hpp"
 
-class RobotomyRequestForm: public AForm {
-public:
-    RobotomyRequestForm(const std::string& name);
-    void execute(const Bureaucrat &executor) const;
-    static std::runtime_error AudioEngineError() ;
-    static std::invalid_argument WrongAudioFile() ;
+class RobotomyRequestForm : public AForm {
+   public:
+	RobotomyRequestForm();
+	RobotomyRequestForm(const RobotomyRequestForm& other);
+	RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
+	~RobotomyRequestForm();
+
+	RobotomyRequestForm(const std::string& target);
+	void execute(const Bureaucrat& executor) const;
 };

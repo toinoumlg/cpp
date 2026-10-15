@@ -1,39 +1,64 @@
 #pragma once
 
+#include <exception>
 #include <iostream>
-#include <string>
+#include <sstream>
 
 class Bureaucrat;
 
 class Form {
-public:
-    Form(const std::string &name, int sign, int exec);
+   public:
+	Form();
 
-    ~Form();
+	Form(const std::string &name, int sign, int exec);
 
-    void beSigned(const Bureaucrat &bureaucrat);
+	Form(const Form &other);
 
-    // Getters
+	~Form();
 
-    bool getSigned() const;
+	Form &operator=(const Form &other);
 
-    std::string getName() const;
+	void beSigned(const Bureaucrat &bureaucrat);
 
-    int getReqSign() const;
+	// Getters
 
-    int getReqExec() const;
+	bool getSigned() const;
 
+	const std::string &getName() const;
 
-    // Error
-    std::out_of_range GradeTooLowException() const;
+	int getReqSign() const;
 
-    std::out_of_range GradeTooHighException() const;
+	int getReqExec() const;
 
-private:
-    const std::string _name;
-    bool _signed;
-    const int _req_sign;
-    const int _req_exec;
+	// Error
+	class GradeTooHighException : public std::exception {
+	   public:
+		GradeTooHighException(const std::string &name, int req_sign,
+		                      int req_exec);
+		const char *what() const throw();
+		~GradeTooHighException() throw();
+
+	   private:
+		std::string _message;
+	};
+
+	class GradeTooLowException : public std::exception {
+	   public:
+		GradeTooLowException(const std::string &name, int req_sign,
+		                     int req_exec);
+		GradeTooLowException(const char *msg);
+		const char *what() const throw();
+		~GradeTooLowException() throw();
+
+	   private:
+		std::string _message;
+	};
+
+   private:
+	const std::string _name;
+	bool _signed;
+	const int _req_sign;
+	const int _req_exec;
 };
 
 std::ostream &operator<<(std::ostream &output, Form const &form);

@@ -1,52 +1,76 @@
 #pragma once
 
-#include <string>
+#include <exception>
 #include <iostream>
+#include <sstream>
+#include <string>
 
 class Bureaucrat {
-public:
-    Bureaucrat(const std::string &name, int grade);
+   public:
+	// Canonical Form
+	Bureaucrat();
 
-    ~Bureaucrat();
+	Bureaucrat(const std::string &name, int grade);
 
-    // Operator overloads
-    Bureaucrat &operator+=(int i);
+	~Bureaucrat();
 
-    Bureaucrat operator++(int);
+	Bureaucrat(const Bureaucrat &other);
 
-    Bureaucrat &operator++();
+	Bureaucrat &operator=(const Bureaucrat &other);
 
-    Bureaucrat &operator-=(int i);
+	// Operator overloads
+	Bureaucrat &operator=(int grade);
 
-    Bureaucrat operator--(int);
+	Bureaucrat &operator+=(int i);
 
-    Bureaucrat &operator--();
+	Bureaucrat operator++(int);
 
+	Bureaucrat &operator++();
 
-    // Modifier
-    void incrementGrade();
+	Bureaucrat &operator-=(int i);
 
-    void incrementGrade(int amount);
+	Bureaucrat operator--(int);
 
-    void decrementGrade();
+	Bureaucrat &operator--();
 
-    void decrementGrade(int amount);
+	// Modifier
+	void incrementGrade();
 
+	void incrementGrade(int amount);
 
-    // Getters
-    std::string getName() const;
+	void decrementGrade();
 
-    int getGrade() const;
+	void decrementGrade(int amount);
 
-    // Errors
-    static std::out_of_range GradeTooHighException();
+	// Getters
+	const std::string &getName() const;
 
-    static std::out_of_range GradeTooLowException();
+	int getGrade() const;
 
-private:
-    const std::string &_name;
-    int _grade;
+	// Exception
+	class GradeTooHighException : public std::exception {
+	   public:
+		GradeTooHighException(const std::string &name, int bad_grade);
+		const char *what() const throw();
+		~GradeTooHighException() throw();
+
+	   private:
+		std::string _message;
+	};
+
+	class GradeTooLowException : public std::exception {
+	   public:
+		GradeTooLowException(const std::string &name, int bad_grade);
+		const char *what() const throw();
+		~GradeTooLowException() throw();
+
+	   private:
+		std::string _message;
+	};
+
+   private:
+	const std::string _name;
+	int _grade;
 };
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &bureaucrat);
-
