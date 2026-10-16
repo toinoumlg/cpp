@@ -1,13 +1,24 @@
 #pragma once
 #include "AForm.hpp"
 
-class ShrubberyCreationForm: public AForm {
-public:
-    ShrubberyCreationForm(const std::string& name);
+class ShrubberyCreationForm : public AForm {
+   public:
+	ShrubberyCreationForm();
+	ShrubberyCreationForm(const ShrubberyCreationForm& other);
+	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
+	~ShrubberyCreationForm();
 
-    static AForm* create(const std::string &name);
+	ShrubberyCreationForm(const std::string& target);
+	ShrubberyCreationForm(const std::string& name, const std::string& target);
+	void execute(const Bureaucrat& executor) const;
+	AForm* create(const std::string& name, const std::string& target) const;
 
-    void execute(const Bureaucrat &executor) const;
+	class InvalidFile : public std::exception {
+	   public:
+		InvalidFile(const char* msg);
+		const char* what() const throw();
 
-    static std::invalid_argument FileAlreadyExists();
+	   private:
+		const char* _message;
+	};
 };

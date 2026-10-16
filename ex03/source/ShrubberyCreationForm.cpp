@@ -1,38 +1,64 @@
 #include "ShrubberyCreationForm.hpp"
+
 #include <fstream>
-#include <sys/stat.h>
 
-#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
-// https://stackoverflow.com/questions/12774207/fastest-way-to-check-if-a-file-exists-using-standard-c-c11-14-17-c
-bool exists(const std::string &filename) {
-    struct stat buffer = {};
-    return stat(filename.c_str(), &buffer) == 0;
+ShrubberyCreationForm::ShrubberyCreationForm()
+    : AForm("ShrubberyCreation", 145, 137, "DefaultTarget") {}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
+    : AForm(other) {}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(
+    const ShrubberyCreationForm& other) {
+	if (&other == this)
+		return *this;
+	setTarget(other.getTarget());
+	setSigned(other.getSigned());
+	return *this;
 }
 
-AForm *ShrubberyCreationForm::create(const std::string &name) {
-    return new ShrubberyCreationForm(name);
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
+    : AForm("ShrubberyCreation", 145, 137, target) {}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& name,
+                                             const std::string& target)
+    : AForm(name, 145, 137, target) {}
+
+void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
+	checkExecutor(executor);
+	const std::string filename = getTarget() + "_shrubbery";
+
+	std::ofstream file(filename.c_str());
+	if (file.fail())
+		throw InvalidFile("failed to open file");
+
+	file << "     ccee88oo" << std::endl
+	     << "  C8O8O8Q8PoOb o8oo" << std::endl
+	     << " dOB69QO8PdUOpugoO9bD" << std::endl
+	     << "CgggbU8OU qOp qOdoUOdcb" << std::endl
+	     << "    6OuU  /p u gcoUodpP" << std::endl
+	     << "      \\\\\\//  /douUP" << std::endl
+	     << "        \\\\\\////" << std::endl
+	     << "         |||/\\" << std::endl
+	     << "         |||\\/" << std::endl
+	     << "         |||||" << std::endl
+	     << "   .....//||||\\...." << std::endl;
+
+	file.close();
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat &executor) const{
-    if (!getSigned())
-        throw FormNeedSign();
-    if (executor.getGrade() > getReqExec())
-        throw GradeTooLowException();
-    std::string filename;
-    filename = getName() + "_shrubbery.txt";
-
-    if (exists(filename))
-        throw FileAlreadyExists();
-    std::ofstream file(filename.data());
-
-    /* Make tree ? */
+AForm* ShrubberyCreationForm::create(const std::string& name,
+                                     const std::string& target) const {
+	return new ShrubberyCreationForm(name, target);
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &name) : AForm(
-    name, 145, 137) {
+ShrubberyCreationForm::InvalidFile::InvalidFile(const char* msg)
+    : _message(msg) {}
+
+const char* ShrubberyCreationForm::InvalidFile::what() const throw() {
+	return _message;
 }
 
-std::invalid_argument ShrubberyCreationForm::FileAlreadyExists() {
-    return std::invalid_argument("provided name is already an existing file");
-}
+ShrubberyCreationForm::~ShrubberyCreationForm() {}

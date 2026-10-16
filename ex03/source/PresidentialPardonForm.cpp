@@ -1,20 +1,40 @@
 #include "PresidentialPardonForm.hpp"
+
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &name) : AForm(
-    name, 25, 5) {
+PresidentialPardonForm::PresidentialPardonForm()
+    : AForm("PresidentialPardon", 25, 5, "DefaultTarget") {}
+
+PresidentialPardonForm::PresidentialPardonForm(
+    const PresidentialPardonForm &other)
+    : AForm(other) {}
+
+PresidentialPardonForm &PresidentialPardonForm::operator=(
+    const PresidentialPardonForm &other) {
+	if (&other == this)
+		return *this;
+	setTarget(other.getTarget());
+	setSigned(other.getSigned());
+	return *this;
 }
 
-AForm *PresidentialPardonForm::create(const std::string &name) {
-    return new PresidentialPardonForm(name);
-}
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
+    : AForm("PresidentialPardon", 25, 5, target) {}
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string &name,
+                                               const std::string &target)
+    : AForm(name, 25, 5, target) {}
 
 void PresidentialPardonForm::execute(const Bureaucrat &executor) const {
-    if (!getSigned())
-        throw FormNeedSign();
-    if (executor.getGrade() > getReqExec())
-        throw GradeTooLowException();
-
-    std::cout << executor << " has been pardoned by Zaphod Beeblebrox" <<
-            std::endl;
+	checkExecutor(executor);
+	std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox"
+	          << std::endl;
 }
+
+AForm *PresidentialPardonForm::create(const std::string &name,
+                                      const std::string &target) const {
+	return new PresidentialPardonForm(name, target);
+}
+
+PresidentialPardonForm::~PresidentialPardonForm() {}
