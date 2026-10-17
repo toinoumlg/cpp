@@ -11,5 +11,5 @@ class RobotomyRequestForm : public AForm {
 	RobotomyRequestForm(const std::string& target);
 	RobotomyRequestForm(const std::string& name, const std::string& target);
 	void execute(const Bureaucrat& executor) const;
-	AForm* create(const std::string& name, const std::string& target) const;
+	static AForm* create(const std::string& target);
 };

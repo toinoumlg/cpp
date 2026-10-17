@@ -11,7 +11,7 @@ class ShrubberyCreationForm : public AForm {
 	ShrubberyCreationForm(const std::string& target);
 	ShrubberyCreationForm(const std::string& name, const std::string& target);
 	void execute(const Bureaucrat& executor) const;
-	AForm* create(const std::string& name, const std::string& target) const;
+	static AForm* create(const std::string& target);
 
 	class InvalidFile : public std::exception {
 	   public:

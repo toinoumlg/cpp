@@ -32,9 +32,8 @@ void PresidentialPardonForm::execute(const Bureaucrat &executor) const {
 	          << std::endl;
 }
 
-AForm *PresidentialPardonForm::create(const std::string &name,
-                                      const std::string &target) const {
-	return new PresidentialPardonForm(name, target);
+AForm *PresidentialPardonForm::create(const std::string &target) {
+	return new PresidentialPardonForm(target);
 }
 
 PresidentialPardonForm::~PresidentialPardonForm() {}

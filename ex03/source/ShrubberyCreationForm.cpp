@@ -49,9 +49,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 	file.close();
 }
 
-AForm* ShrubberyCreationForm::create(const std::string& name,
-                                     const std::string& target) const {
-	return new ShrubberyCreationForm(name, target);
+AForm* ShrubberyCreationForm::create(const std::string& target) {
+	return new ShrubberyCreationForm(target);
 }
 
 ShrubberyCreationForm::InvalidFile::InvalidFile(const char* msg)

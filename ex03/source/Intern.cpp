@@ -5,22 +5,26 @@
 #include "ShrubberyCreationForm.hpp"
 
 Intern::FormCreator Intern::_forms_type[] = {
-    {"shrubbery request", &ShrubberyCreationForm::create},
+    {"shrubbery creation", &ShrubberyCreationForm::create},
     {"robotomy request", &RobotomyRequestForm::create},
-    {"presidential request", &PresidentialPardonForm::create}};
+    {"presidential pardon", &PresidentialPardonForm::create}};
 
 AForm* Intern::makeForm(const std::string& name, const std::string& target) {
-	for (int i = 0; i < 3; i++) {
+	const int size = sizeof(_forms_type) / sizeof(_forms_type[0]);
+	for (int i = 0; i < size; ++i) {
 		if (name == _forms_type[i].name) {
-			AForm* created = _forms_type[i].handler(name, target);
-			this->*_forms_type[i].handler;
+			AForm* created = _forms_type[i].handler(target);
 			std::cout << "Intern created " << *created << std::endl;
 			return created;
 		}
 	}
-	throw InvalidFormType();
+	throw InvalidForm("invalid form");
 }
 
-std::invalid_argument Intern::InvalidFormType() {
-	return std::invalid_argument("invalid form type");
+Intern::InvalidForm::InvalidForm(const char* msg) {
+	_message = msg;
+}
+
+const char* Intern::InvalidForm::what() const throw() {
+	return _message;
 }
