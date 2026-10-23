@@ -8,16 +8,12 @@ int ScalarConverter::convert(const std::string &value) {
 			fromChar(value);
 			break;
 		case INT:
-			std::cout << "int" << std::endl;
 			fromInt(value);
 			break;
 		case FLOAT:
-			std::cout << "float" << std::endl;
 			fromFloat(value);
 			break;
 		case DOUBLE:
-			std::cout << "double" << std::endl;
-
 			fromDouble(value);
 			break;
 		case INVALID:

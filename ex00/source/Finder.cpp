@@ -34,7 +34,6 @@ bool isDouble(const std::string& value) {
 e_type findType(const std::string& value) {
 	if (value.empty())
 		return INVALID;
-
 	if (isChar(value))
 		return CHAR;
 	if (isInt(value))

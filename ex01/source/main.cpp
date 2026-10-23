@@ -2,15 +2,20 @@
 
 void isequal(Data* ptr1, Data* ptr2) {
 	if (ptr1 != ptr2)
-		std::cout << "input and result arent equal" << std::endl;
+		std::cout << "data 1: " << ptr1 << " != data 2: " << ptr2 << std::endl
+		          << std::endl;
 	else
-		std::cout << "input and result are equal" << std::endl;
+		std::cout << "data 1: " << ptr1 << " == data 2: " << ptr2 << std::endl
+		          << std::endl;
 }
 
 void printdata(Data* ptr) {
+	if (!ptr)
+		return;
 	std::cout << "age: " << ptr->age << std::endl
 	          << "name: " << ptr->name << std::endl
 	          << "city: " << ptr->city << std::endl
+	          << "adress: " << ptr << std::endl
 	          << std::endl;
 }
 
@@ -33,7 +38,8 @@ int main() {
 
 	raw = Serializer::serialize(input);
 
-	std::cout << "uintptr_t value after serialize: " << raw << std::endl;
+	std::cout << "uintptr_t value after serialize: " << raw << std::endl
+	          << std::endl;
 
 	result = Serializer::deserialize(raw);
 
