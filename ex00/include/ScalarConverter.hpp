@@ -2,32 +2,24 @@
 
 #include <cerrno>
 #include <cmath>
-#include <cstdio>
 #include <cstdlib>
 #include <cstring>
 #include <iomanip>
 #include <iostream>
 #include <limits>
 #include <string>
-#include <typeinfo>
 
-enum e_type {
-	INVALID = -1,
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE,
-};
+enum e_type { INVALID = -1, CHAR, INT, FLOAT, DOUBLE };
 
 class ScalarConverter {
+   public:
+	static void convert(const std::string& value);
+
    private:
 	ScalarConverter();
 	ScalarConverter& operator=(const ScalarConverter& other);
 	ScalarConverter(const ScalarConverter& other);
 	~ScalarConverter();
-
-   public:
-	static int convert(const std::string& value);
 };
 
 // publics methods

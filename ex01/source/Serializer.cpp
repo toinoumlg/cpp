@@ -10,6 +10,13 @@ Data *Serializer::deserialize(uintptr_t raw) {
 	return test;
 }
 
+std::ostream &operator<<(std::ostream &s, const Data &data) {
+	s << "age: " << data.age << std::endl
+	  << "name: " << data.name << std::endl
+	  << "city: " << data.city;
+	return s;
+}
+
 // Orthodox Canonical Form even if not instantiable
 Serializer::Serializer() {}
 

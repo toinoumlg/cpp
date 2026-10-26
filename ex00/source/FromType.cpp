@@ -11,9 +11,6 @@ void fromChar(const std::string& value) {
 
 void fromInt(const std::string& value) {
 	long l = std::atol(value.c_str());
-	if (l < std::numeric_limits<int>::min() ||
-	    l > std::numeric_limits<int>::max())
-		return impossible();
 
 	toChar(static_cast<double>(l));
 	toInt(static_cast<double>(l));
