@@ -1,6 +1,6 @@
 #include "ScalarConverter.hpp"
 
-int ScalarConverter::convert(const std::string &value) {
+void ScalarConverter::convert(const std::string& value) {
 	std::cout << std::fixed << std::setprecision(1);
 
 	switch (findType(value)) {
@@ -17,19 +17,18 @@ int ScalarConverter::convert(const std::string &value) {
 			fromDouble(value);
 			break;
 		case INVALID:
-			return 1;
+			impossible();
+			break;
 	}
-	return 0;
 }
 
-// Orthodox Canonical Form even if not instantiable
 ScalarConverter::ScalarConverter() {}
 
-ScalarConverter::ScalarConverter(const ScalarConverter &other) {
+ScalarConverter::ScalarConverter(const ScalarConverter& other) {
 	*this = other;
 }
 
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other) {
 	(void)other;
 	return *this;
 }
