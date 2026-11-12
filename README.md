@@ -31,8 +31,8 @@ The C++ module branches go from `CPP00` to `CPP09`.
 | [CPP03](https://github.com/toinoumlg/cpp/tree/CPP03) | Completed   |
 | [CPP04](https://github.com/toinoumlg/cpp/tree/CPP04) | Completed   |
 | [CPP05](https://github.com/toinoumlg/cpp/tree/CPP05) | Completed   |
-| [CPP06](https://github.com/toinoumlg/cpp/tree/CPP06) | Not started |
-| [CPP07](https://github.com/toinoumlg/cpp/tree/CPP07) | Not started |
+| [CPP06](https://github.com/toinoumlg/cpp/tree/CPP06) | Completed   |
+| [CPP07](https://github.com/toinoumlg/cpp/tree/CPP07) | In progress |
 | [CPP08](https://github.com/toinoumlg/cpp/tree/CPP08) | Not started |
 | [CPP09](https://github.com/toinoumlg/cpp/tree/CPP09) | Not started |
 
