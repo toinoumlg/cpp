@@ -1,4 +1,4 @@
-NAME = Converting
+NAME = array
 
 CXX = c++
 CXXFLAGS = -Werror -Wextra -Wall  -std=c++98

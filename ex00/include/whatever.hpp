@@ -1,4 +1,5 @@
-#pragma once
+#ifndef WHATEVER_HPP
+#define WHATEVER_HPP
 
 #include <iostream>
 
@@ -17,9 +18,10 @@ T min(T x, T y) {
 }
 
 template <typename T>
-void swap(T &x, T &y) {
-	T z;
-	z = x;
+void swap(T& x, T& y) {
+	T z(x);
 	x = y;
 	y = z;
 }
+
+#endif

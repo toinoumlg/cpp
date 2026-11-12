@@ -1,4 +1,7 @@
-#pragma once
+#ifndef ITER_HPP
+#define ITER_HPP
+
+#include <iostream>
 
 template <typename T, typename F>
 void iter(T* ptr, const unsigned int length, F f) {
@@ -17,4 +20,8 @@ void add(T& x) {
 }
 
 template <>
-void add(std::string& x);
+void add(std::string& x) {
+	iter(&x[0], x.size(), add<char>);
+}
+
+#endif

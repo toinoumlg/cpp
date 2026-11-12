@@ -1,4 +1,4 @@
-NAME = Converting
+NAME = whatever
 
 CXX = c++
 CXXFLAGS = -Werror -Wextra -Wall -std=c++98
@@ -8,7 +8,7 @@ OBJECTS_DIR = build/
 INCLUDE_DIR = include/
 
 CPP_FILES = main
-HPP_FILES = Templates
+HPP_FILES = whatever
 
 SOURCES = $(addprefix $(SOURCE_DIR), $(addsuffix .cpp, $(CPP_FILES)))
 OBJECTS = $(patsubst $(SOURCE_DIR)%.cpp,$(OBJECTS_DIR)%.o,$(SOURCES))
