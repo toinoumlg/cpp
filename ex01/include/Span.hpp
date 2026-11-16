@@ -26,8 +26,8 @@ public:
   void fill();
   ~Span();
 
-  unsigned int shortestSpan();
-  unsigned int longestSpan();
+  unsigned int shortestSpan() const;
+  unsigned int longestSpan() const;
 
   int operator[](unsigned int) const;
 

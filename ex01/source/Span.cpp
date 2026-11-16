@@ -5,7 +5,7 @@
 
 Span::Span() {}
 
-Span::Span(unsigned int n) { _content.reserve(n); }
+Span::Span(const unsigned int n) { _content.reserve(n); }
 
 Span::Span(const Span &other) : _content(other._content) {}
 
@@ -29,7 +29,7 @@ void Span::addRange(const unsigned int begin, const unsigned int end) {
   std::generate_n(_content.begin() + begin, end - begin, rand);
 }
 
-int rand() { return std::(); }
+int rand() { return std::rand(); }
 
 void Span::fill() {
   _content.insert(_content.begin(), _content.capacity(), 0);
@@ -42,20 +42,18 @@ int Span::operator[](const unsigned int at) const {
   return _content[at];
 }
 
-unsigned int Span::longestSpan() {
+unsigned int Span::longestSpan() const {
   if (_content.size() <= 1)
     throw impossible_span();
-  unsigned int longest = 0;
-  for (std::vector<int>::const_iterator first = _content.begin();
-       first != _content.end(); ++first)
-    for (std::vector<int>::const_iterator second = _content.begin();
-         second != _content.end(); ++second) {
-      if (first == second)
-        continue;
-    }
-  return 0;
+  unsigned int res = 0;
+
+  return res;
 }
 
-unsigned int Span::shortestSpan() { return 0; }
+unsigned int Span::shortestSpan() const {
+  if (_content.size() <= 1)
+    throw impossible_span();
+  return 0;
+}
 
 Span::~Span() {}
