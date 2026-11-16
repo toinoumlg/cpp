@@ -24,20 +24,20 @@ class Array {
 
    private:
 	size_t _size;
-	T* _value;
+	T* _arr;
 };
 
 template <typename T>
-Array<T>::Array() : _size(0), _value(NULL) {}
+Array<T>::Array() : _size(0), _arr(NULL) {}
 
 template <typename T>
-Array<T>::Array(const unsigned int size) : _size(size), _value(new T[size]()) {}
+Array<T>::Array(const unsigned int size) : _size(size), _arr(new T[size]()) {}
 
 template <typename T>
 Array<T>::Array(const Array& other)
-    : _size(other._size), _value(new T[other._size]()) {
+    : _size(other._size), _arr(new T[other._size]()) {
 	for (size_t i = 0; i < _size; ++i) {
-		_value[i] = other[i];
+		_arr[i] = other[i];
 	}
 }
 
@@ -45,11 +45,11 @@ template <typename T>
 Array<T>& Array<T>::operator=(const Array& other) {
 	if (this == &other)
 		return *this;
-	delete[] _value;
-	_value = new T[other._size]();
+	delete[] _arr;
+	_arr = new T[other._size]();
 	_size = other._size;
 	for (size_t i = 0; i < _size; ++i)
-		_value[i] = other[i];
+		_arr[i] = other[i];
 	return *this;
 }
 
@@ -57,19 +57,19 @@ template <typename T>
 T& Array<T>::operator[](int at) {
 	if (at < 0 || static_cast<size_t>(at) >= _size)
 		throw std::exception();
-	return _value[at];
+	return _arr[at];
 }
 
 template <typename T>
 const T& Array<T>::operator[](int at) const {
 	if (at < 0 || static_cast<size_t>(at) >= _size)
 		throw std::exception();
-	return _value[at];
+	return _arr[at];
 }
 
 template <typename T>
 Array<T>::~Array() {
-	delete[] _value;
+	delete[] _arr;
 }
 
 template <typename T>
