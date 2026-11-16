@@ -1,10 +1,28 @@
+#include <string>
+
 #include "iter.hpp"
+
+template <typename T>
+static void print(const T& x) {
+	std::cout << x << std::endl;
+}
+
+template <typename T>
+static void add(T& x) {
+	++x;
+}
+
+template <>
+void add(std::string& x) {
+	if (!x.empty())
+		iter(&x[0], x.size(), add<char>);
+}
 
 int main() {
 	int test[3] = {0, 1, 2};
-	const char cs[18] = "this is a c array";
+	char cs[18] = "this is a c array";
 
-	const std::string str = "i am a c++ const string";
+	std::string str = "i am a c++ const string";
 	std::string arr[5];
 	arr[0] = "we";
 	arr[1] = "are";
@@ -18,8 +36,10 @@ int main() {
 	iter(test, 3, add<int>);
 	iter(test, 3, print<int>);
 
-	// iter(cs, 17, add<char>);
-	iter(cs, 17, print<char>);
+	iter(str, str.size(), )
+
+	    // iter(cs, 17, add<char>);
+	    iter(cs, 17, print<char>);
 
 	iter(str.c_str(), str.size(), print<char>);
 	// iter(&str[0],str.size(), add<char>);

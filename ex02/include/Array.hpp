@@ -18,7 +18,7 @@ class Array {
 	Array& operator=(const Array&);
 
 	T& operator[](int);
-	T operator[](int) const;
+	const T& operator[](int) const;
 
 	size_t size() const;
 
@@ -31,12 +31,11 @@ template <typename T>
 Array<T>::Array() : _size(0), _value(NULL) {}
 
 template <typename T>
-Array<T>::Array(const unsigned int size)
-    : _size(size), _value(new T[_size]()) {}
+Array<T>::Array(const unsigned int size) : _size(size), _value(new T[size]()) {}
 
 template <typename T>
 Array<T>::Array(const Array& other)
-    : _size(other._size), _value(new T[_size]()) {
+    : _size(other._size), _value(new T[other._size]()) {
 	for (size_t i = 0; i < _size; ++i) {
 		_value[i] = other[i];
 	}
@@ -62,7 +61,7 @@ T& Array<T>::operator[](int at) {
 }
 
 template <typename T>
-T Array<T>::operator[](int at) const {
+const T& Array<T>::operator[](int at) const {
 	if (at < 0 || static_cast<size_t>(at) >= _size)
 		throw std::exception();
 	return _value[at];
