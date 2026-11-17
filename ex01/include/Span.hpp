@@ -22,15 +22,22 @@ public:
   Span(const Span &other);
   Span &operator=(const Span &other);
   void addNumber(int nb);
-  void addRange(unsigned int begin, unsigned int end);
-  void fill();
+  template <typename Iterator> void addRange(Iterator begin, Iterator end);
+  void fill_rand();
   ~Span();
 
   unsigned int shortestSpan() const;
   unsigned int longestSpan() const;
 
-  int operator[](unsigned int) const;
+  const int &operator[](unsigned int) const;
 
 private:
   std::vector<int> _content;
+  std::size_t _max_size;
 };
+
+template <typename Iterator> void Span::addRange(Iterator begin, Iterator end) {
+  if (_content.size() + std::distance(begin, end) > _max_size)
+    throw invalid_range();
+  _content.insert(_content.end(), begin, end);
+}
