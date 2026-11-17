@@ -2,16 +2,19 @@
 #include <vector>
 
 class overflow : std::exception {
+public:
   const char *what() const throw() {
     return "trying to add number when Span is full";
   }
 };
 
 class invalid_range : std::exception {
-  const char *what() const throw() { return "invalid range on Span"; }
+public:
+  const char *what() const throw() { return "invalid range access on Span"; }
 };
 
 class impossible_span : std::exception {
+public:
   const char *what() const throw() { return "impossible span request"; }
 };
 
@@ -33,11 +36,10 @@ public:
 
 private:
   std::vector<int> _content;
-  std::size_t _max_size;
 };
 
 template <typename Iterator> void Span::addRange(Iterator begin, Iterator end) {
-  if (_content.size() + std::distance(begin, end) > _max_size)
+  if (_content.size() + std::distance(begin, end) > _content.capacity())
     throw invalid_range();
   _content.insert(_content.end(), begin, end);
 }

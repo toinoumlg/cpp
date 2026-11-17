@@ -4,58 +4,56 @@
 #include <complex>
 #include <iostream>
 
-Span::Span() : _max_size(0) {}
+Span::Span() { _content.reserve(0); }
 
-Span::Span(const unsigned int n) : _max_size(n) { _content.reserve(n); }
+Span::Span(const unsigned int n) { _content.reserve(n); }
 
-Span::Span(const Span &other)
-    : _max_size(other._max_size), _content(other._content) {
-  _content.reserve(other._max_size);
+Span::Span(const Span &other) : _content(other._content) {
+  _content.reserve(other._content.capacity());
 }
 
 Span &Span::operator=(const Span &other) {
   if (this != &other) {
-    _max_size = other._max_size;
     _content = other._content;
-    _content.reserve(_max_size);
+    _content.reserve(other._content.capacity());
   }
   return *this;
 }
 
 void Span::addNumber(const int nb) {
-  if (_content.size() + 1 >= _content.capacity())
+  if (_content.size() >= _content.capacity())
     throw overflow();
   _content.push_back(nb);
 }
 
 void Span::fill_rand() {
-  _content.resize(_max_size);
+  _content.resize(_content.capacity());
   std::generate(_content.begin(), _content.end(), std::rand);
 }
 
 const int &Span::operator[](const unsigned int at) const {
   if (at >= _content.size())
-    throw overflow();
+    throw invalid_range();
   return _content[at];
 }
 
 unsigned int Span::longestSpan() const {
   if (_content.size() <= 1)
     throw impossible_span();
-  Span sorter(*this);
-  std::sort(sorter._content.begin(), sorter._content.end());
-  return sorter._content.back() - sorter[0];
+  const int min = *std::min_element(_content.begin(), _content.end());
+  const int max = *std::max_element(_content.begin(), _content.end());
+  return max - min;
 }
 
 unsigned int Span::shortestSpan() const {
   if (_content.size() <= 1)
     throw impossible_span();
   unsigned long shortest = ULONG_MAX;
-  Span sorter(*this);
-  std::sort(sorter._content.begin(), sorter._content.end());
-  for (std::size_t i = 0; i < _content.size() - 1; ++i) {
-    if (sorter[i + 1] - sorter[i] < shortest)
-      shortest = sorter[i + 1] - sorter[i];
+  std::vector<int> finder(_content);
+  std::sort(finder.begin(), finder.end());
+  for (std::size_t i = 0; i < finder.size() - 1; ++i) {
+    if (finder[i + 1] - finder[i] < shortest)
+      shortest = finder[i + 1] - finder[i];
   }
 
   return shortest;
