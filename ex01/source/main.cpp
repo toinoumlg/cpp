@@ -22,7 +22,7 @@ int main() {
   other.addRange(v.begin(), v.end() - SIZE);
 
   try {
-    unsigned int _ = t.longestSpan();
+    t.longestSpan();
   } catch (impossible_span &e) {
     std::cout << "error :" << e.what() << std::endl;
   }

@@ -52,7 +52,7 @@ unsigned int Span::shortestSpan() const {
   std::vector<int> finder(_content);
   std::sort(finder.begin(), finder.end());
   for (std::size_t i = 0; i < finder.size() - 1; ++i) {
-    if (finder[i + 1] - finder[i] < shortest)
+    if (static_cast<unsigned long>(finder[i + 1] - finder[i]) < shortest)
       shortest = finder[i + 1] - finder[i];
   }
 

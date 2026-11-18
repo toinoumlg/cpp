@@ -1,4 +1,4 @@
-NAME = span
+NAME = mutantstack
 
 CXX = c++
 CXXFLAGS = -Werror -Wextra -Wall -std=c++98
@@ -7,12 +7,14 @@ SOURCE_DIR = source/
 OBJECTS_DIR = build/
 INCLUDE_DIR = include/
 
-CPP_FILES = main MonsterStack
-HPP_FILES = MonsterStack
+CPP_FILES = main
+HPP_FILES = MutantStack
+TPP_FILES = MutantStack
 
 SOURCES = $(addprefix $(SOURCE_DIR), $(addsuffix .cpp, $(CPP_FILES)))
 OBJECTS = $(patsubst $(SOURCE_DIR)%.cpp,$(OBJECTS_DIR)%.o,$(SOURCES))
-HEADERS = $(addprefix $(INCLUDE_DIR), $(addsuffix .hpp, $(HPP_FILES)))
+HEADERS = $(addprefix $(INCLUDE_DIR), $(addsuffix .hpp, $(HPP_FILES))) \
+          $(addprefix $(INCLUDE_DIR), $(addsuffix .tpp, $(TPP_FILES)))
 
 all: $(NAME)
 
