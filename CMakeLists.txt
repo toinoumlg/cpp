@@ -9,8 +9,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Find folders containing source/ and include/
 file(GLOB children LIST_DIRECTORIES true "${CMAKE_CURRENT_SOURCE_DIR}/*")
 
-foreach(child ${children})
-    if(IS_DIRECTORY "${child}"
+foreach (child ${children})
+    if (IS_DIRECTORY "${child}"
             AND IS_DIRECTORY "${child}/source"
             AND IS_DIRECTORY "${child}/include")
 
@@ -22,14 +22,20 @@ foreach(child ${children})
                 "${child}/source/*.cxx"
         )
 
-        if(sources)
-            add_executable(${target_name} ${sources})
+        file(GLOB_RECURSE headers
+                "${child}/include/*.hpp"
+                "${child}/include/*.h"
+                "${child}/include/*.tpp"
+        )
+
+        if (sources)
+            add_executable(${target_name} ${sources} ${headers})
 
             target_include_directories(${target_name}
                     PRIVATE "${child}/include"
             )
 
             message(STATUS "Target found: ${target_name}")
-        endif()
-    endif()
-endforeach()
+        endif ()
+    endif ()
+endforeach ()
