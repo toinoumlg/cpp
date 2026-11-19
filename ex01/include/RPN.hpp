@@ -1,10 +1,8 @@
 #pragma once
 
-#include <iostream>
 #include <queue>
-#include <stack>
 
-class RPN : std::queue<char> {
+class RPN : std::deque<int> {
    public:
 	RPN();
 	RPN(const RPN&);
@@ -12,5 +10,6 @@ class RPN : std::queue<char> {
 	~RPN();
 
 	RPN(const char*);
-	int Process();
+	void Process(char c);
+	int Result() const;
 };

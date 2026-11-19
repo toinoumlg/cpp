@@ -1,4 +1,4 @@
-NAME = iter
+NAME = RPN
 
 CXX = c++
 CXXFLAGS = -Werror -Wextra -Wall  -std=c++98
