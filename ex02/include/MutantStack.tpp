@@ -1,70 +1,74 @@
-#ifndef MONSTER_STACK_TPP
-#define MONSTER_STACK_TPP
+#ifndef MUTANTSTACK_TPP
+#define MUTANTSTACK_TPP
+
 #include "MutantStack.hpp"
 
-template <typename T> MutantStack<T>::MutantStack() : std::stack<T>() {}
+template <class T, class Container>
+MutantStack<T, Container>::MutantStack() : std::stack<T, Container>() {}
 
-template <typename T>
-MutantStack<T>::MutantStack(const MutantStack &other) : std::stack<T>(other) {}
+template <class T, class Container>
+MutantStack<T, Container>::MutantStack(const MutantStack& other)
+    : std::stack<T, Container>(other) {}
 
-template <typename T>
-MutantStack<T> &MutantStack<T>::operator=(const MutantStack &other) {
-  if (this != &other) {
-    std::stack<T>::operator=(other);
-  }
-  return *this;
+template <class T, class Container>
+MutantStack<T, Container>& MutantStack<T, Container>::operator=(
+    const MutantStack& other) {
+	if (this != &other) {
+		std::stack<T, Container>::operator=(other);
+	}
+	return *this;
+}
+template <class T, class Container>
+MutantStack<T, Container>::MutantStack(const Container& container)
+    : std::stack<T, Container>(container) {}
+
+template <class T, class Container>
+MutantStack<T, Container>::~MutantStack() {}
+
+template <class T, class Container>
+typename MutantStack<T, Container>::iterator
+MutantStack<T, Container>::begin() {
+	return std::stack<T, Container>::c.begin();
 }
 
-template <class T>
-MutantStack<T>::MutantStack(const std::stack<T> &other)
-    : std::stack<T>(other) {}
-
-template <typename T> MutantStack<T>::~MutantStack() {}
-
-template <typename T>
-template <typename Container>
-MutantStack<T>::MutantStack(const Container &container) : std::stack<T>() {
-  for (typename Container::const_iterator it = container.begin();
-       it != container.end(); ++it)
-    this->push(*it);
+template <class T, class Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end() {
+	return std::stack<T, Container>::c.end();
 }
 
-template <class T> typename MutantStack<T>::iterator MutantStack<T>::begin() {
-  return std::stack<T>::c.begin();
+template <class T, class Container>
+typename MutantStack<T, Container>::const_iterator
+MutantStack<T, Container>::begin() const {
+	return std::stack<T, Container>::c.begin();
 }
 
-template <class T> typename MutantStack<T>::iterator MutantStack<T>::end() {
-  return std::stack<T>::c.end();
+template <class T, class Container>
+typename MutantStack<T, Container>::const_iterator
+MutantStack<T, Container>::end() const {
+	return std::stack<T, Container>::c.end();
+}
+template <class T, class Container>
+typename MutantStack<T, Container>::reverse_iterator
+MutantStack<T, Container>::rbegin() {
+	return std::stack<T, Container>::c.rbegin();
 }
 
-template <class T>
-typename MutantStack<T>::const_iterator MutantStack<T>::begin() const {
-  return std::stack<T>::c.begin();
+template <class T, class Container>
+typename MutantStack<T, Container>::reverse_iterator
+MutantStack<T, Container>::rend() {
+	return std::stack<T, Container>::c.rend();
 }
 
-template <class T>
-typename MutantStack<T>::const_iterator MutantStack<T>::end() const {
-  return std::stack<T>::c.end();
+template <class T, class Container>
+typename MutantStack<T, Container>::const_reverse_iterator
+MutantStack<T, Container>::rbegin() const {
+	return std::stack<T, Container>::c.rbegin();
 }
 
-template <class T>
-typename MutantStack<T>::reverse_iterator MutantStack<T>::rbegin() {
-  return std::stack<T>::c.rbegin();
-}
-
-template <class T>
-typename MutantStack<T>::reverse_iterator MutantStack<T>::rend() {
-  return std::stack<T>::c.rend();
-}
-
-template <class T>
-typename MutantStack<T>::const_reverse_iterator MutantStack<T>::rbegin() const {
-  return std::stack<T>::c.rbegin();
-}
-
-template <class T>
-typename MutantStack<T>::const_reverse_iterator MutantStack<T>::rend() const {
-  return std::stack<T>::c.rend();
+template <class T, class Container>
+typename MutantStack<T, Container>::const_reverse_iterator
+MutantStack<T, Container>::rend() const {
+	return std::stack<T, Container>::c.rend();
 }
 
 #endif

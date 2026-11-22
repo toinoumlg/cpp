@@ -1,34 +1,35 @@
 #include "Span.hpp"
+
 #include <algorithm>
-#include <climits>
-#include <complex>
-#include <iostream>
+#include <cstdlib>
 
-Span::Span() { _content.reserve(0); }
+Span::Span() : _max_size(0) {}
 
-Span::Span(const unsigned int n) { _content.reserve(n); }
+Span::Span(const unsigned int n) : _max_size(n) { _content.reserve(n); }
 
-Span::Span(const Span &other) : _content(other._content) {
-  _content.reserve(other._content.capacity());
+Span::Span(const Span &other)
+    : _content(other._content), _max_size(other._max_size) {
+  _content.reserve(other._max_size);
 }
 
 Span &Span::operator=(const Span &other) {
   if (this != &other) {
     _content = other._content;
-    _content.reserve(other._content.capacity());
+    _max_size = other._max_size;
+    _content.reserve(other._max_size);
   }
   return *this;
 }
 
 void Span::addNumber(const int nb) {
-  if (_content.size() >= _content.capacity())
+  if (_content.size() >= _max_size)
     throw overflow();
   _content.push_back(nb);
 }
 
 void Span::fill_rand() {
-  _content.resize(_content.capacity());
-  std::generate(_content.begin(), _content.end(), std::rand);
+  std::generate_n(std::back_inserter(_content), _max_size - _content.size(),
+                  std::rand);
 }
 
 const int &Span::operator[](const unsigned int at) const {
@@ -42,18 +43,23 @@ unsigned int Span::longestSpan() const {
     throw impossible_span();
   const int min = *std::min_element(_content.begin(), _content.end());
   const int max = *std::max_element(_content.begin(), _content.end());
-  return max - min;
+  return static_cast<unsigned int>(max) - static_cast<unsigned int>(min);
 }
 
 unsigned int Span::shortestSpan() const {
   if (_content.size() <= 1)
     throw impossible_span();
-  unsigned long shortest = ULONG_MAX;
-  std::vector<int> finder(_content);
-  std::sort(finder.begin(), finder.end());
-  for (std::size_t i = 0; i < finder.size() - 1; ++i) {
-    if (static_cast<unsigned long>(finder[i + 1] - finder[i]) < shortest)
-      shortest = finder[i + 1] - finder[i];
+  std::vector<int> sorted(_content);
+  std::sort(sorted.begin(), sorted.end());
+  unsigned long shortest = static_cast<unsigned int>(sorted[1]) -
+                           static_cast<unsigned int>(sorted[0]);
+  for (std::size_t i = 0; i < sorted.size() - 1; ++i) {
+    unsigned int diff = static_cast<unsigned int>(sorted[i + 1]) -
+                        static_cast<unsigned int>(sorted[i]);
+    if (diff < shortest)
+      shortest = diff;
+    if (shortest == 0)
+      break;
   }
 
   return shortest;
