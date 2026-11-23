@@ -54,9 +54,9 @@ static void list() {
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::stack<int, std::list<int> > copy(list);
-	MutantStack<int, std::list<int> > mstack(list);
-	MutantStack<int, std::list<int> > _operator;
+	std::stack<int, std::list<int>> copy(list);
+	MutantStack<int, std::list<int>> mstack(list);
+	MutantStack<int, std::list<int>> _operator;
 	_operator = mstack;
 	std::cout << "list size = " << list.size() << " top = " << list.back()
 	          << std::endl;
@@ -79,7 +79,7 @@ static void iterators() {
 	for (int i = 0; i < 100; ++i) {
 		mstack.push(i);
 	}
-	const MutantStack<int>& const_stack = mstack;
+	const MutantStack<int> &const_stack = mstack;
 
 	std::cout << "const iterator :";
 	for (MutantStack<int>::const_iterator it = const_stack.begin();
@@ -116,11 +116,12 @@ static void iterators() {
 static void custom() {
 	std::cout << "Custom stack with vector :" << std::endl;
 	std::vector<int> v;
+	v.reserve(SIZE);
 	for (int i = 0; i < SIZE; ++i)
 		v.push_back(i);
 
 	std::cout << "Vector size " << v.size() << std::endl;
-	MutantStack<int, std::vector<int> > vector_stack(v);
+	MutantStack<int, std::vector<int>> vector_stack(v);
 	std::cout << "Mutant stack size " << vector_stack.size() << std::endl;
 	for (int i = 0; i < SIZE; ++i)
 		vector_stack.pop();
