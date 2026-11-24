@@ -4,17 +4,19 @@
 
 RPN::RPN() {}
 
-RPN::RPN(const RPN& other) : std::deque<int>(other) {}
+RPN::RPN(const RPN& other) : std::list<int>(other) {}
 
 RPN& RPN::operator=(const RPN& other) {
 	if (&other != this)
-		std::deque<int>::operator=(other);
+		std::list<int>::operator=(other);
 	return *this;
 }
 
 RPN::~RPN() {}
 
-bool is_operand(char c) { return c == '*' || c == '/' || c == '+' || c == '-'; }
+static bool is_operand(char c) {
+	return c == '*' || c == '/' || c == '+' || c == '-';
+}
 
 RPN::RPN(const char* str) {
 	while (*str) {

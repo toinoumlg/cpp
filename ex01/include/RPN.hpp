@@ -1,8 +1,8 @@
 #pragma once
 
-#include <queue>
+#include <list>
 
-class RPN : std::deque<int> {
+class RPN : std::list<int> {
    public:
 	RPN();
 	RPN(const RPN&);

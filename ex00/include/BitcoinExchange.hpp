@@ -1,14 +1,29 @@
 #pragma once
+
+#include <map>
 #include <stdexcept>
-#include <vector>
 
-struct Date {
-	short year;
-	short month;
-	short day;
+class Date {
+   public:
+	Date();
+	Date(const Date&);
+	Date(const std::string&);
+
+	Date& operator=(const Date&);
+	~Date();
+
+	bool IsValid() const;
+	bool operator==(const Date&) const;
+	bool operator!=(const Date&) const;
+	bool operator<(const Date&) const;
+
+	std::string ToString() const;
+
+   private:
+	short _year;
+	short _month;
+	short _day;
 };
-
-typedef std::vector<std::pair<Date, float> > Data;
 
 class BitcoinExchange {
    public:
@@ -17,16 +32,12 @@ class BitcoinExchange {
 	BitcoinExchange& operator=(const BitcoinExchange&);
 	~BitcoinExchange();
 
-	BitcoinExchange(const char*);
-
-	float GetClosest(const Date& input) const;
+	void Exec(const char* file_path) const;
 
    private:
-	Data _data;
-};
+	float GetClosest(const Date& input) const;
 
-bool operator==(const Date&, const Date&);
-bool operator!=(const Date&, const Date&);
-bool operator<(const Date&, const Date&);
+	std::map<Date, float> _data;
+};
 
 std::ostream& operator<<(std::ostream&, const Date&);

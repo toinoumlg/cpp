@@ -9,6 +9,6 @@ int main(int ac, char** av) {
 		const RPN rpn(av[1]);
 		std::cout << rpn.Result() << std::endl;
 	} catch (std::exception&) {
-		std::cout << "Error" << std::endl;
+		std::cerr << "Error" << std::endl;
 	}
 }
