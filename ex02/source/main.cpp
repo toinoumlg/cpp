@@ -1,5 +1,5 @@
 
-#include <deque>
+#include <iostream>
 
 #include "PmergeMe.hpp"
 
@@ -8,10 +8,14 @@ int main(int ac, char** av) {
 		if (ac < 2)
 			throw std::exception();
 
-		PmergeMe<> vec(&av[1]);
-		PmergeMe<std::deque<unsigned int> > deq(&av[1]);
+		PmergeMe merger;
+		merger.before(&av[1]);
 
-		vec.Merge();
+		merger.mergeVec(&av[1]);
+		merger.mergeDeq(&av[1]);
+
+		merger.after();
+
 	} catch (std::exception&) {
 		std::cerr << "Error" << std::endl;
 	}
