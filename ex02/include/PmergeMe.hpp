@@ -2,10 +2,9 @@
 #define PMERGE_ME_HPP
 
 #include <cstdlib>
-#include <iostream>
+#include <ctime>
+#include <deque>
 #include <vector>
-
-template <class C = std::vector<unsigned int> >
 class PmergeMe {
    public:
 	PmergeMe();
@@ -13,46 +12,23 @@ class PmergeMe {
 	PmergeMe& operator=(const PmergeMe&);
 	~PmergeMe();
 
-	PmergeMe(char** args);
+	void before(char** args);
+	void after() const;
 
-	void Merge();
+	void mergeVec(char** args);
+	void mergeDeq(char** args);
+	void sortDeq(std::size_t elem_size);
 
    private:
-	C _data;
+	void sortVec(std::size_t elem_size);
+	static int _elem_size;
+	std::vector<unsigned int> _vec;
+	double _vec_time;
+
+	std::deque<unsigned int> _deq;
+	double _deq_time;
+
+	std::size_t _size;
 };
-
-template <class C>
-PmergeMe<C>::PmergeMe() {}
-
-template <class C>
-PmergeMe<C>::PmergeMe(const PmergeMe& other) : _data(other._data) {}
-
-template <class C>
-PmergeMe<C>& PmergeMe<C>::operator=(const PmergeMe& other) {
-	if (this != &other)
-		_data = other._data;
-	return *this;
-}
-
-template <class C>
-PmergeMe<C>::PmergeMe(char** args) {
-	std::cout << "Before:";
-
-	while (*args) {
-		char* end = NULL;
-		unsigned long value = std::strtoul(*args, &end, 10);
-		if (!**args || *end != '\0')
-			throw std::exception();
-		_data.push_back(value);
-		std::cout << " " << value;
-		args++;
-	}
-	std::cout << std::endl;
-}
-template <class C>
-void PmergeMe<C>::Merge() {}
-
-template <class C>
-PmergeMe<C>::~PmergeMe() {}
 
 #endif
