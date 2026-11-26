@@ -1,8 +1,9 @@
-#pragma once
+#ifndef RPN_H
+#define RPN_H
 
 #include <list>
 
-class RPN : std::list<int> {
+class RPN : public std::list<int> {
    public:
 	RPN();
 	RPN(const RPN&);
@@ -13,3 +14,5 @@ class RPN : std::list<int> {
 	void Process(char c);
 	int Result() const;
 };
+
+#endif

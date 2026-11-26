@@ -5,6 +5,7 @@
 #include <ctime>
 #include <deque>
 #include <vector>
+
 class PmergeMe {
    public:
 	PmergeMe();
@@ -12,23 +13,30 @@ class PmergeMe {
 	PmergeMe& operator=(const PmergeMe&);
 	~PmergeMe();
 
-	void before(char** args);
+	static void before(char** args);
 	void after() const;
 
 	void mergeVec(char** args);
 	void mergeDeq(char** args);
-	void sortDeq(std::size_t elem_size);
 
    private:
 	void sortVec(std::size_t elem_size);
-	static int _elem_size;
+	void swapVec(std::size_t elem_size, std::size_t pair_size,
+	             std::size_t nb_pairs);
+	void insertVec(std::size_t elem_size, std::size_t pair_size,
+	               std::size_t nb_pairs);
+
 	std::vector<unsigned int> _vec;
 	double _vec_time;
 
+	void sortDeq(std::size_t elem_size);
+	void swapDeq(std::size_t elem_size, std::size_t pair_size,
+	             std::size_t nb_pairs);
+	void insertDeq(std::size_t elem_size, std::size_t pair_size,
+	               std::size_t nb_pairs);
+
 	std::deque<unsigned int> _deq;
 	double _deq_time;
-
-	std::size_t _size;
 };
 
 #endif

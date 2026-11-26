@@ -73,7 +73,7 @@ std::string Date::ToString() const {
 }
 
 bool Date::IsValid() const {
-	const bool leap = +_year % 400 == 0 || (_year % 4 == 0 && _year % 100 != 0);
+	const bool leap = _year % 400 == 0 || (_year % 4 == 0 && _year % 100 != 0);
 	static const short days[] = {0,  31, 28, 31, 30, 31, 30,
 	                             31, 31, 30, 31, 30, 31};
 

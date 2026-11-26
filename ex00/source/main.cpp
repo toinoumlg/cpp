@@ -3,12 +3,10 @@
 #include "BitcoinExchange.hpp"
 
 int main(int ac, char** av) {
-	if (ac != 2) {
-		std::cout << "Error: missing ." << std::endl;
-		return 1;
-	}
-
 	try {
+		if (ac != 2)
+			throw std::exception();
+
 		const BitcoinExchange btc;
 		btc.Exec(av[1]);
 	} catch (std::exception& e) {

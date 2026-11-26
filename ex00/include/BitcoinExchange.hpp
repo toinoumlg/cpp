@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BITCOIN_EXCHANGE_HPP
+#define BITCOIN_EXCHANGE_HPP
 
 #include <map>
 #include <stdexcept>
@@ -41,3 +42,5 @@ class BitcoinExchange {
 };
 
 std::ostream& operator<<(std::ostream&, const Date&);
+
+#endif
